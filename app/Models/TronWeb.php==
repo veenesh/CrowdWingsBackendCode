@@ -1,0 +1,243 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+use IEXBase\TronAPI\Provider\HttpProvider;
+use IEXBase\TronAPI\Tron;
+use Config\Database;
+
+class TronWeb extends Model
+{
+    public function __construct()
+    {
+        $fullNode  = new HttpProvider('https://api.trongrid.io/');
+        $solidityNode   = new HttpProvider('https://api.trongrid.io/');
+        $eventServer   = new HttpProvider('https://api.trongrid.io/');
+
+
+        try {
+            $this->tron = new Tron($fullNode, $solidityNode, $eventServer);
+        } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+            exit($e->getMessage());
+        }
+    }
+    public function createAddress()
+    {
+        $generateAddress = $this->tron->generateAddress();
+
+        return (object)[
+            'address_hex' => $generateAddress->getAddress(),
+            'address_base58' => $generateAddress->getAddress(true),
+            'private_key' => $generateAddress->getPrivateKey(),
+            'public_key' => $generateAddress->getPublicKey(),
+        ];
+    }
+
+    public function usdtTxn($address)
+    {        
+        $db      = Database::connect();
+        $contract = $this->tron->contract('TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t');  // Tether USDT https://tronscan.org/#/token20/TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t
+        $results = $contract->getTransactions($address);        
+        $data = [];
+        foreach ($results['data'] as $result) {
+            if ($result['to'] == $address AND $result['type']=='Transfer') {
+                $amount = $result['value'] / 1000000;
+                $data = [
+                    'transaction_id' => $result['transaction_id'],
+                    'block_timestamp' => $result['block_timestamp'],
+                    'from' => $result['from'],
+                    'to' => $result['to'],
+                    'type' => $result['type'],
+                    'value' => $amount,
+                ];
+                $count = $db->query("SELECT COUNT(*) as total FROM add_fund_txn WHERE transaction_id='$result[transaction_id]'")->getRow()->total;
+                if (!$count) {
+                    if ($db->table('add_fund_txn')->insert($data)) {
+                        $db->query("UPDATE members SET wallet=wallet+$amount WHERE wallet_address='$address'");
+                    }
+                }
+            }
+        }
+    }
+
+    /* public function impsRequest($account_holder, $account_no, $bank, $ifsc, $mid, $amount)
+    {
+        $date = date('Y-m-d');
+        $TxnDetail = new TxnDetails();
+
+        $TxnDetail->insert([
+            'member_id' => $mid,
+            'amount' => $amount,
+            'type' => 'Withdrawal',
+            'account_holder' => $account_holder,
+            'account_no' => $account_no,
+            'bank' => $bank,
+            'ifsc' => $ifsc,
+            'date_created' => $date
+        ]);
+    } */
+
+    public function sendTokenk24($toaddress, $mid, $amount)
+    {
+        $WALLET = "TTC7bJJ6HT7XJ9YnU8tewp4yE4gGVbqCED";
+        $PKRY = "465030c32a4af51275fe85aecf6f73aa26f82819e50a6b07a3c3e6209579c846";
+        $CONTRACT = "TRqqtP1zifQBadaFJDzCxUggRmXZhGoYr8"; //K24 contract address
+
+        $this->tron->setAddress($WALLET);
+        $this->tron->setPrivateKey($PKRY);
+
+        $TOKEN = $this->tron->contract($CONTRACT);
+        try {
+            $transfer_amount = $amount - $amount * .1;
+
+            $res = $TOKEN->transfer($toaddress, $transfer_amount, $WALLET);
+            if ($res['txid']) {
+                $date = date('Y-m-d');
+                $TxnDetail = new TxnDetails();
+                $TxnDetail->insert([
+                    'member_id' => $mid,
+                    'amount' => $amount,
+                    'type' => 'WithdrawalToken',
+                    'hash' => $res['txid'],
+                    'upgrade_id' => $toaddress,
+                    'date_created' => $date
+                ]);
+            }
+
+          return $res;  
+        } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+            echo $e->getMessage();
+        }
+    }
+    public function sendToken($toaddress, $mid, $amount)
+    {
+        $WALLET = "TTC7bJJ6HT7XJ9YnU8tewp4yE4gGVbqCED";
+        $PKRY = "465030c32a4af51275fe85aecf6f73aa26f82819e50a6b07a3c3e6209579c846";
+        $CONTRACT = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+
+        $this->tron->setAddress($WALLET);
+        $this->tron->setPrivateKey($PKRY);
+
+        $TOKEN = $this->tron->contract($CONTRACT);
+        try {
+            
+            $transfer_amount = $amount - $amount * .05;
+
+            $res = $TOKEN->transfer($toaddress, $transfer_amount, $WALLET);
+
+
+            $date = date('Y-m-d');
+            $TxnDetail = new TxnDetails();
+            $TxnDetail->insert([
+                'member_id' => $mid,
+                'amount' => $amount,
+                'type' => 'Withdrawal',
+                'hash' => $res['txid'],
+                'upgrade_id' => $toaddress,
+                'date_created' => $date
+            ]);
+            return true;
+        } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function sendTokenAdmin($toaddress, $wallet, $private, $mid, $amount)
+    {
+        $WALLET = $wallet;
+        $PKRY = $private;
+        $CONTRACT = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+
+        $this->tron->setAddress($WALLET);
+        $this->tron->setPrivateKey($PKRY);
+
+        $TOKEN = $this->tron->contract($CONTRACT);
+        try {
+            $transfer_amount = $amount;
+
+            $res = $TOKEN->transfer($toaddress, $transfer_amount, $WALLET);
+
+
+            $date = date('Y-m-d');
+            $TxnDetail = new TxnDetails();
+            $TxnDetail->insert([
+                'member_id' => $mid,
+                'amount' => $amount,
+                'type' => 'Admin Withdrawal',
+                'hash' => $res['txid'],
+                'upgrade_id' => $toaddress,
+                'date_created' => $date
+            ]);
+        } catch (\IEXBase\TronAPI\Exception\TronException $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function transferUsdtToMainWallet()
+    {
+        $to_wallet = "TCnHkvKdrbzQfFiL4FyWobGQMFmk5jwF5n";
+        $date = date('Y-m-d H:i:s');
+        $db      = Database::connect();
+        $results = $db->query("SELECT * FROM add_fund_txn WHERE is_transfer=0")->getResult();
+
+        foreach ($results as $result) {
+            echo "<br />".$wallet_address = $result->to;
+
+            $user_wallet = $db->query("SELECT * FROM members WHERE wallet_address='$wallet_address'")->getRow();
+            
+
+            $user_address = $user_wallet->wallet_address;
+            $user_key = $user_wallet->private_key;
+            $user_amount = round($result->value);
+            //$user_amount = 1;
+
+            //ADD TRON;
+            $WALLET_TRON = "TTC7bJJ6HT7XJ9YnU8tewp4yE4gGVbqCED";
+            $PKRY_TRON = "465030c32a4af51275fe85aecf6f73aa26f82819e50a6b07a3c3e6209579c846";
+            $transfer_amount = 15;
+            $this->tron->setAddress($WALLET_TRON);
+            $this->tron->setPrivateKey($PKRY_TRON);
+
+            $res =  $this->tron->send($wallet_address, $transfer_amount);
+
+            $db->table('usdt_transfer')->insert([
+                'add_fund_id' => $result->id,
+                'amount' => $transfer_amount,
+                'from_wallet' => $WALLET_TRON,
+                'to_wallet' => $wallet_address,
+                'hash_code' => $res['txid'],
+                'type' => 'TRX',
+                'date' => $date,
+            ]);
+            //TRANSFER USDT
+            
+            $WALLET =$user_address;
+            $PKRY = $user_key;
+            $CONTRACT = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t";
+
+            $this->tron->setAddress($WALLET);
+            $this->tron->setPrivateKey($PKRY);
+
+            $TOKEN = $this->tron->contract($CONTRACT);
+            $transfer_amount = $user_amount;
+            $res = $TOKEN->transfer($to_wallet, $transfer_amount, $WALLET);
+
+            //SAVE TRANSACTION 
+            $hash = "###";
+            $db->table('usdt_transfer')->insert([
+                'add_fund_id' => $result->id,
+                'amount' => $user_amount,
+                'from_wallet' => $result->to,
+                'to_wallet' => $to_wallet,
+                'hash_code' => $res['txid'],
+                'type' => 'USDT',
+                'date' => $date,
+            ]);
+
+            //UPDATE STATUS
+
+            $db->query("UPDATE add_fund_txn SET is_transfer=1 WHERE id=$result->id");
+        }
+    }
+}
