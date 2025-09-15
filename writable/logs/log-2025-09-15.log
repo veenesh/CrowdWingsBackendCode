@@ -254,3 +254,617 @@ in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
  5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
 INFO - 2025-09-15 04:17:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-09-15 04:17:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 04:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-15 04:51:22 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/member/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 04:53:07 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/addedFund', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 04:53:07 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income/binary', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 04:53:07 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/team', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:11:46 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/member/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:17:41 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/member/profile', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:17:41 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/team', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:17:41 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:21:11 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:21:11 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/addedFund', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:21:11 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income/binary', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:21:11 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/team', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-15 05:56:45 --> mysqli_sql_exception: Unknown column 'u.amount' in 'field list' in D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('\r\n            S...', 0)
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('\r\n            S...', Array)
+#4 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#5 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#6 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#7 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#8 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-15 05:56:45 --> Unknown column 'u.amount' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('
+            SELECT 
+                t.member_id,
+                SUM(CASE WHEN t.position = \'leftM\' THEN u.amount ELSE 0 END) AS left_actual,
+                SUM(CASE WHEN t.position = \'rightM\' THEN u.amount ELSE 0 END) AS right_actual
+            FROM tree_data t
+            INNER JOIN upgrades u ON t.member_added = u.member_id
+            WHERE u.created_at BETWEEN ? AND ?
+            GROUP BY t.member_id
+        ', [...])
+ 2 APPPATH\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:00:01', '2025-09-15 12:00:00')
+ 3 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-15 05:57:08 --> mysqli_sql_exception: Unknown column 'u.amount' in 'field list' in D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('\r\n            S...', 0)
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('\r\n            S...', Array)
+#4 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#5 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#6 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#7 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#8 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-15 05:57:08 --> Unknown column 'u.amount' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('
+            SELECT 
+                t.member_id,
+                SUM(CASE WHEN t.position = \'leftM\' THEN u.amount ELSE 0 END) AS left_actual,
+                SUM(CASE WHEN t.position = \'rightM\' THEN u.amount ELSE 0 END) AS right_actual
+            FROM tree_data t
+            INNER JOIN upgrades u ON t.member_added = u.member_id
+            WHERE u.created_at BETWEEN ? AND ?
+            GROUP BY t.member_id
+        ', [...])
+ 2 APPPATH\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:00:01', '2025-09-15 12:00:00')
+ 3 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:57:08 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(mysqli_sql_exception), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(mysqli_sql_exception), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 8)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(mysqli_sql_exception))
+#5 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Database\Exceptions\DatabaseException
+Unknown column 'u.amount' in 'field list'
+#0 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('\r\n            S...', Array)
+#1 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#2 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#4 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#5 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#7 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2025-09-15 05:58:34 --> mysqli_sql_exception: Unknown column 'u.created_at' in 'where clause' in D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('\r\n            S...', 0)
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('\r\n            S...')
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('\r\n            S...')
+#3 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('\r\n            S...', Array)
+#4 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#5 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#6 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#7 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#8 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-15 05:58:34 --> Unknown column 'u.created_at' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('
+            SELECT 
+                t.member_id,
+                SUM(CASE WHEN t.position = \'leftM\' THEN 1 ELSE 0 END) AS left_actual,
+                SUM(CASE WHEN t.position = \'rightM\' THEN 1 ELSE 0 END) AS right_actual
+            FROM tree_data t
+            INNER JOIN upgrades u ON t.member_added = u.member_id
+            WHERE u.created_at BETWEEN ? AND ?
+            GROUP BY t.member_id
+        ', [...])
+ 2 APPPATH\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:00:01', '2025-09-15 12:00:00')
+ 3 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:58:34 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(mysqli_sql_exception), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(mysqli_sql_exception), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 8)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(mysqli_sql_exception))
+#5 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Database\Exceptions\DatabaseException
+Unknown column 'u.created_at' in 'where clause'
+#0 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(108): CodeIgniter\Database\BaseConnection->query('\r\n            S...', Array)
+#1 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#2 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#4 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#5 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#7 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-09-15 05:59:12 --> Call to a member function setJSON() on null
+in APPPATH\Models\Upgrade.php on line 77.
+ 1 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:59:12 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(Error), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+【Previous Exception】
+Error
+Call to a member function setJSON() on null
+#0 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#5 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:12:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:13:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-15 06:18:24 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income/leftrightbusiness', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+INFO - 2025-09-15 06:18:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:18:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:18:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:22:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:23:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-15 06:38:42 --> Call to a member function setJSON() on null
+in APPPATH\Models\Upgrade.php on line 77.
+ 1 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:38:42 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(Error), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+【Previous Exception】
+Error
+Call to a member function setJSON() on null
+#0 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#5 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-09-15 06:40:01 --> Call to a member function setJSON() on null
+in APPPATH\Models\Upgrade.php on line 77.
+ 1 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:40:01 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(Error), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+【Previous Exception】
+Error
+Call to a member function setJSON() on null
+#0 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#5 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2025-09-15 06:41:01 --> mysqli_sql_exception: Duplicate entry '10001-2025-09-15-day' for key 'matching_income.member_id' in D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ma...', 0)
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ma...')
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ma...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#4 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(152): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#6 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#7 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#8 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#9 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-15 06:41:01 --> Duplicate entry '10001-2025-09-15-day' for key 'matching_income.member_id'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `matching_income` (`member_id`, `date`, `slot`, `leftM`, `rightM`, `left_with_carry`, `right_with_carry`, `pair`, `capping`, `after_capping`, `income`, `carry_L`, `carry_R`, `created_at`) VALUES (:member_id:, :date:, :slot:, :leftM:, :rightM:, :left_with_carry:, :right_with_carry:, :pair:, :capping:, :after_capping:, :income:, :carry_L:, :carry_R:, :created_at:)', [...], false)
+ 2 APPPATH\Models\Upgrade.php(152): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:00:01', '2025-09-15 12:00:00')
+ 4 APPPATH\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:41:01 --> Uncaught Error: Call to undefined method CodeIgniter\Debug\ExceptionHandler::cleanPath() in D:\wamp64\www\corwdwings\backend\app\Views\errors\html\error_exception.php:33
+Stack trace:
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(241): include()
+#1 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#2 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(112): CodeIgniter\Debug\BaseExceptionHandler->render(Object(mysqli_sql_exception), 500, 'D:\\wamp64\\www\\c...')
+#3 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Debug\Exceptions.php(148): CodeIgniter\Debug\ExceptionHandler->handle(Object(mysqli_sql_exception), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 8)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(mysqli_sql_exception))
+#5 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Database\Exceptions\DatabaseException
+Duplicate entry '10001-2025-09-15-day' for key 'matching_income.member_id'
+#0 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ma...', Array, false)
+#1 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(152): CodeIgniter\Database\BaseBuilder->insert(Array)
+#2 D:\wamp64\www\corwdwings\backend\app\Models\Upgrade.php(76): App\Models\Upgrade->processMatching('day', '2025-09-15 00:0...', '2025-09-15 12:0...')
+#3 D:\wamp64\www\corwdwings\backend\app\Controllers\Api\Income.php(34): App\Models\Upgrade->dayMatching()
+#4 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(942): App\Controllers\Api\Income->matchingDCronJob()
+#5 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Income))
+#6 D:\wamp64\www\corwdwings\backend\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\wamp64\www\corwdwings\backend\index.php(85): CodeIgniter\CodeIgniter->run()
+#8 {main}
+in APPPATH\Views\errors\html\error_exception.php on line 33.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2025-09-15 06:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-15 06:56:00 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/team', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:56:00 --> Key material must be a string, resource, or OpenSSLAsymmetricKey
+in FCPATH\vendor\firebase\php-jwt\src\Key.php on line 31.
+ 1 APPPATH\Filters\ApiFilter.php(55): Firebase\JWT\Key->__construct(false, 'HS256')
+ 2 SYSTEMPATH\Filters\Filters.php(184): App\Filters\ApiFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(474): CodeIgniter\Filters\Filters->run('api/income/binary', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(85): CodeIgniter\CodeIgniter->run()
+INFO - 2025-09-15 06:56:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:57:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 06:58:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:44:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:50:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:53:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-09-15 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

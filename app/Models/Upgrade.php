@@ -74,7 +74,7 @@ class Upgrade extends Model
         $endTime   = $date . ' 12:00:00';
 
         $result = $this->processMatching('day', $startTime, $endTime);
-        return $this->response->setJSON($result);
+        echo "Done";
     }
 
     /**
@@ -87,7 +87,7 @@ class Upgrade extends Model
         $endTime   = $date . ' 23:59:59';
 
         $result = $this->processMatching('night', $startTime, $endTime);
-        return $this->response->setJSON($result);
+        echo "Done";
     }
 
     private function processMatching(string $slot, string $startTime, string $endTime)
@@ -95,14 +95,14 @@ class Upgrade extends Model
         $date    = date('Y-m-d');
 
         // --- Get left/right actual business ---
-        $sql = "
+        echo $sql = "
             SELECT 
                 t.member_id,
-                SUM(CASE WHEN t.position = 'leftM' THEN u.amount ELSE 0 END) AS left_actual,
-                SUM(CASE WHEN t.position = 'rightM' THEN u.amount ELSE 0 END) AS right_actual
+                SUM(CASE WHEN t.position = 'leftM' THEN 1 ELSE 0 END) AS left_actual,
+                SUM(CASE WHEN t.position = 'rightM' THEN 1 ELSE 0 END) AS right_actual
             FROM tree_data t
             INNER JOIN upgrades u ON t.member_added = u.member_id
-            WHERE u.created_at BETWEEN ? AND ?
+            WHERE u.date BETWEEN ? AND ?
             GROUP BY t.member_id
         ";
         $results = $this->db->query($sql, [$startTime, $endTime])->getResult();
@@ -142,7 +142,9 @@ class Upgrade extends Model
             }
 
             // Example: income = total_pair (adjust if formula changes)
-            $income = $total_pair;
+            $income = $total_pair*2;
+            $capping = $capping*2;
+            $after_capping = $income-$capping;
 
             // New carry values
             $new_left_carry  = $left_with_carry - ($total_pair);
@@ -159,8 +161,8 @@ class Upgrade extends Model
                 'right_with_carry' => $right_with_carry,
                 'pair'             => $pair,
                 'capping'          => $capping,
-                'after_capping'    => $total_pair,
-                'income'           => $income * 2,
+                'after_capping'    => $after_capping,
+                'income'           => $income,
                 'carry_L'          => $new_left_carry,
                 'carry_R'          => $new_right_carry,
                 'created_at'       => date('Y-m-d H:i:s'),
@@ -629,10 +631,10 @@ class Upgrade extends Model
             }
         }
 
-        if ($amount < 10) {
+        if ($amount < 5) {
             $data = [
                 'status' => 'error',
-                'message' => 'Min withdrawal is 10 USD',
+                'message' => 'Min withdrawal is 5 USD',
                 'redirect' => 0,
             ];
             return $data;
@@ -693,7 +695,7 @@ class Upgrade extends Model
                     'upgrade_id' => 'Transfer',
                     'date_created' => $date
                 ]);
-                $transfer_amount = $amount - $amount * .1;
+                $transfer_amount = $amount - $amount * .05;
                 $this->db->query("UPDATE members SET wallet=wallet+$transfer_amount WHERE member_id='$mid'");
             }
             $data = [
@@ -881,7 +883,7 @@ class Upgrade extends Model
     public function matchingIncome($mid)
     {
         $totalIncome = $this->db->query("SELECT SUM(income) as total FROM matching_income WHERE member_id='$mid'")->getRow()->total ?? 0;
-        $roiData = $this->db->query("SELECT * FROM matching_income WHERE member_id='$mid' ORDER BY id DESC ")->getResult();
+        $roiData = $this->db->query("SELECT date, slot, leftM, rightM, carry_L, carry_R, pair, income, capping, after_capping as final_income FROM matching_income WHERE member_id='$mid' ORDER BY id DESC ")->getResult();
 
         return [
             'total' => $totalIncome,
@@ -890,6 +892,7 @@ class Upgrade extends Model
     }
     public function leftrightbusiness($mid)
     {
+        
         $results = $this->db->query("with recursive Team as(
             select m.member_id, m.sponsor_id, m.upline, m.position, u.date as active_date, u.upgrade_amount, 1 as level from members as m 
     		left join upgrades as u on u.member_id=m.member_id
@@ -900,7 +903,8 @@ class Upgrade extends Model
             inner join members as mm on tl.member_id=mm.upline
     		left join upgrades as uu on uu.member_id=mm.member_id
         )
-        SELECT position,round(sum(total)) as total FROM(SELECT *, sum(upgrade_amount) as total FROM Team tt WHERE tt.sponsor_id!='$mid' GROUP BY tt.member_id)aa GROUP by position")->getResult();
+        SELECT position,round(sum(total)) as total FROM(SELECT *, sum(upgrade_amount) as total FROM Team tt  GROUP BY tt.member_id)aa GROUP by position")->getResult();
+   
         $leftB = 0;
         $rightB = 0;
         foreach ($results as $result) {
@@ -997,6 +1001,16 @@ class Upgrade extends Model
         ];
     }
 
+    public function royalityIncomeData($mid)
+    {
+        $total=0;
+        $data=[];
+        return [
+            'total' => $total,
+            'data' => $data,
+        ];
+
+    }
     public function rewardIncomeData($mid)
     {
 

@@ -97,6 +97,14 @@ class Income extends ResourceController
         return $this->respond($result, 200);
     }
 
+    public function royality(){
+        $member_id = $_SESSION['member_id'];
+        $id = $_SESSION['id'];
+        $UP = new Upgrade(); 
+        $result = $UP->royalityIncomeData($member_id);
+        return $this->respond($result, 200);
+    }
+
     public function binaryData(){
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];

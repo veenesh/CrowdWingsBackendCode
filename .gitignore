@@ -72,6 +72,8 @@ phpunit
 # Composer
 #-------------------------
 vendor/
+writable/debugbar/*
+writable/session/*
 
 #-------------------------
 # IDE / Development Files

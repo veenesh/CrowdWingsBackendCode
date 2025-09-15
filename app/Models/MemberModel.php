@@ -236,9 +236,23 @@ class MemberModel extends Model
     {
         return $this->db->query("SELECT amount, date_created as date FROM txn_details WHERE member_id='$mid' AND type='Withdrawal'")->getResult();
     }   
+    public function matchingTeam($mid){
+        $total_matching=0;
+        $left_matching=0;
+        $right_matching=0;
+        $left_carry=0;
+        $right_carry=0;
+        return [
+            'total_matching'=>$total_matching,
+            'left_matching'=>$left_matching,
+            'right_matching'=>$right_matching,
+            'left_carry'=>$left_carry,
+            'right_carry'=>$right_carry,
+        ];
+    }
     public function team($mid){
         
-         $teamDirect =  $this->db->query("select count(*) as total from members as m where m.sponsor_id='$mid'")->getRow()->total;
+        $teamDirect =  $this->db->query("select count(*) as total from members as m where m.sponsor_id='$mid'")->getRow()->total;
         $teamDirectActive =  $this->db->query("SELECT count(*) as total FROM (select m.member_id from members as m INNER JOIN upgrades as u ON u.member_id=m.member_id where m.sponsor_id='$mid' GROUP BY m.member_id)aa;")->getRow()->total;
         
         $teamLeft =  $this->db->query("
@@ -325,7 +339,7 @@ class MemberModel extends Model
 
         if($level=='direct'){
             return $this->db->query("
-            select (@sr := @sr + 1) AS sr, member_id, name, sponsor_id, upline, m.created_at as date from members as m where m.sponsor_id='$mid' ORDER BY created_at DESC")->getResult();
+            select (@sr := @sr + 1) AS sr, member_id, name, m.phone, sponsor_id, m.position, date(m.created_at) as date from members as m where m.sponsor_id='$mid' ORDER BY created_at DESC")->getResult();
         }
         
         if($level=='direct active'){

@@ -17,8 +17,8 @@ class Member extends ResourceController
         $id = $_SESSION['id'];
         $result = $MEMBER->getData($member_id);
         //$result = $MEMBER->select('id, member_id, country_code, phone,  wallet_address, wallet, sponsor_id,  name, image, email, status')->find($id);
-        $data['status']='success';
-        $data['result']=$result;
+        $data['status'] = 'success';
+        $data['result'] = $result;
         return $this->respond($data, 200);
     }
 
@@ -35,33 +35,33 @@ class Member extends ResourceController
     } */
 
     public function updateProfile()
-{
-    $member_id = $_SESSION['member_id'];
-    $id = $_SESSION['id'];
+    {
+        $member_id = $_SESSION['member_id'];
+        $id = $_SESSION['id'];
 
-    $user_wallet = $this->request->getVar('user_wallet');
-    $otp         = $this->request->getVar('otp');
+        $user_wallet = $this->request->getVar('user_wallet');
+        $otp         = $this->request->getVar('otp');
 
-    // ✅ Handle image upload
-    $imageFile = $this->request->getFile('image');
-    $imageName = null;
+        // ✅ Handle image upload
+        $imageFile = $this->request->getFile('image');
+        $imageName = null;
 
-    if ($imageFile && $imageFile->isValid() && !$imageFile->hasMoved()) {
-        // Create unique filename
-        $imageName = $imageFile->getRandomName();
-        $uploadPath = FCPATH . 'uploads/';
+        if ($imageFile && $imageFile->isValid() && !$imageFile->hasMoved()) {
+            // Create unique filename
+            $imageName = $imageFile->getRandomName();
+            $uploadPath = FCPATH . 'uploads/';
 
-        // Move to /public/uploads/
-        $imageFile->move($uploadPath, $imageName);
+            // Move to /public/uploads/
+            $imageFile->move($uploadPath, $imageName);
+        }
+
+        $MEMBER = new MemberModel();
+
+        // ✅ Pass image name to model (if uploaded)
+        $result = $MEMBER->updateProfile($member_id, $user_wallet, $otp, $imageName);
+
+        return $this->respond($result, 200);
     }
-
-    $MEMBER = new MemberModel();
-
-    // ✅ Pass image name to model (if uploaded)
-    $result = $MEMBER->updateProfile($member_id, $user_wallet, $otp, $imageName);
-
-    return $this->respond($result, 200);
-}
 
 
     public function memberData()
@@ -71,11 +71,11 @@ class Member extends ResourceController
 
         $result = $MEMBER->getData($member_id);
 
-        $data['status']='fail';                
-        if(isset($result->id)){
-            $data['status']='success';
+        $data['status'] = 'fail';
+        if (isset($result->id)) {
+            $data['status'] = 'success';
         }
-        $data['result']=$result;
+        $data['result'] = $result;
         return $this->respond($data, 200);
     }
 
@@ -88,25 +88,16 @@ class Member extends ResourceController
 
         $result = $MEMBER->getDwnlineDetails($member_id, $position);
 
-        $data['status']='fail';                
-        if(isset($result->id)){
-            $data['status']='success';
+        $data['status'] = 'fail';
+        if (isset($result->id)) {
+            $data['status'] = 'success';
         }
-        $data['result']=$result;
+        $data['result'] = $result;
         return $this->respond($data, 200);
     }
 
-    public function team(){
-        $member_id = $_SESSION['member_id'];
-        $id = $_SESSION['id'];
-        $MEMBER = new MemberModel();
-        $result = $MEMBER->team($member_id);
-        return $this->respond($result, 200);
-    }
-    
-    
-    
-    public function teamDirect(){
+    public function team()
+    {
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
         $MEMBER = new MemberModel();
@@ -114,7 +105,28 @@ class Member extends ResourceController
         return $this->respond($result, 200);
     }
 
-    public function changePassword(){
+    public function matchingTeam()
+    {
+        $member_id = $_SESSION['member_id'];
+        $id = $_SESSION['id'];
+        $MEMBER = new MemberModel();
+        $result = $MEMBER->matchingTeam($member_id);
+        return $this->respond($result, 200);
+    }
+
+
+
+    public function teamDirect()
+    {
+        $member_id = $_SESSION['member_id'];
+        $id = $_SESSION['id'];
+        $MEMBER = new MemberModel();
+        $result = $MEMBER->team($member_id);
+        return $this->respond($result, 200);
+    }
+
+    public function changePassword()
+    {
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
 
@@ -126,7 +138,8 @@ class Member extends ResourceController
         return $this->respond($result, 200);
     }
 
-    public function teamDetails(){
+    public function teamDetails()
+    {
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
         $level =  $this->request->getVar()->level;
@@ -137,36 +150,39 @@ class Member extends ResourceController
         return $this->respond($result, 200);
     }
 
-    public function news(){
+    public function news()
+    {
         $NEWS = new NewsModel();
         $result = $NEWS->findAll();
         return $this->respond($result, 200);
     }
 
-    public function help(){
+    public function help()
+    {
         $MSG = new Message();
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
-        
-        if(isset($_GET['test'])){
+
+        if (isset($_GET['test'])) {
             $MSG->sendAll();
         }
-        
+
         $result = $MSG->getMessage($id);
         return $this->respond($result, 200);
     }
 
-    public function helpMesssage(){
+    public function helpMesssage()
+    {
         $MSG = new Message();
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
         $message =  $this->request->getVar()->message;
         $date = date('Y-m-d H:i:s');
         $MSG->insert([
-            'message'=>$message,
-            'message_from'=>$id,
-            'message_to'=>0,
-            'created_on'=>$date,
+            'message' => $message,
+            'message_from' => $id,
+            'message_to' => 0,
+            'created_on' => $date,
         ]);
 
         $result = $MSG->getMessage($id);

@@ -108,6 +108,7 @@ $routes->group("api", function ($routes) {
     
     $routes->get("token/valid", "Api\Auth::tokenValid", ['filter' => 'ApiFilter']);
     $routes->get("member/profile", "Api\Member::index", ['filter' => 'ApiFilter']);
+    
     $routes->post("member/profile-update", "Api\Member::updateProfile", ['filter' => 'ApiFilter']);
     $routes->get("member/data", "Api\Member::memberData");
     $routes->get("member/downline", "Api\Member::memberDownlineByPosition");
@@ -120,6 +121,7 @@ $routes->group("api", function ($routes) {
 
     $routes->get("income/auto-pool-income", "Api\Income::autoPoolIncome", ['filter' => 'ApiFilter']);
 
+    $routes->get("income/royality", "Api\Income::royality", ['filter' => 'ApiFilter']);
     $routes->get("income/reward", "Api\Income::rewardData", ['filter' => 'ApiFilter']);
     $routes->get("income/binary", "Api\Income::matching", ['filter' => 'ApiFilter']);
     $routes->get("income/leftrightbusiness", "Api\Income::leftrightbusiness", ['filter' => 'ApiFilter']);
@@ -138,6 +140,7 @@ $routes->group("api", function ($routes) {
     $routes->get("upgrades", "Api\Income::listUpgrades", ['filter' => 'ApiFilter']);
     
     $routes->get("team", "Api\Member::team", ['filter' => 'ApiFilter']);
+    $routes->get("matching-team", "Api\Member::matchingTeam", ['filter' => 'ApiFilter']);
     
     $routes->post("team-details", "Api\Member::teamDetails", ['filter' => 'ApiFilter']);
     

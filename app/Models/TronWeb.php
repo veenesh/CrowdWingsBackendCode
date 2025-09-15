@@ -123,7 +123,7 @@ class TronWeb extends Model
     {
         $WALLET = "0x33868dE1a86f16218D604445165d7Ac0890F85cD";
         $PKRY = "15f8092adb7b7f2d535994998ccf31e986fe2977e9242d595d6afeaf8e776e07";
-        $per=.1;
+        $per=.5;
         if($transfer_from=='wallet_fund'){
             $per=.05;
         }
