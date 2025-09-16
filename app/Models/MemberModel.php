@@ -237,11 +237,14 @@ class MemberModel extends Model
         return $this->db->query("SELECT amount, date_created as date FROM txn_details WHERE member_id='$mid' AND type='Withdrawal'")->getResult();
     }   
     public function matchingTeam($mid){
-        $total_matching=0;
-        $left_matching=0;
-        $right_matching=0;
-        $left_carry=0;
-        $right_carry=0;
+ 
+        $res = $this->db->query("SELECT SUM(pair) as total, SUM(leftM) as leftM, SUM(rightM) as rightM from matching_income WHERE member_id='$mid'")->getRow();
+        $res2 = $this->db->query("SELECT * from matching_income WHERE member_id='$mid' ORDER BY id DESC")->getRow();
+        $total_matching=$res->total??0;
+        $left_matching=$res->leftM??0;
+        $right_matching=$res->rightM??0;
+        $left_carry=$res2->carry_L??0;
+        $right_carry=$res2->carry_R??0;
         return [
             'total_matching'=>$total_matching,
             'left_matching'=>$left_matching,

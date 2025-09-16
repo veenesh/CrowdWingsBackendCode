@@ -710,18 +710,116 @@ class Upgrade extends Model
 
     public function poolIncomeData($mid){
         $pool1 = $this->db->query("SELECT * FROM pool1 WHERE member_id='$mid'")->getResult();
+        $pool1D = $this->db->query("WITH RECURSIVE member_levels AS (
+            SELECT 
+                m.user_id,
+                m.member_id,
+                m.upline_id,
+                0 AS level
+            FROM (
+                SELECT *
+                FROM pool1
+                WHERE member_id = '$mid'
+                ORDER BY user_id ASC
+                LIMIT 1
+            ) AS m
+        
+            UNION ALL
+        
+            -- Recursive query: get children
+            SELECT 
+                c.user_id,
+                c.member_id,
+                c.upline_id,
+                ml.level + 1 AS level
+            FROM pool1 c
+            INNER JOIN member_levels ml 
+                ON c.upline_id = ml.user_id
+        )
+        SELECT 
+            level,
+            COUNT(*) AS total
+        FROM member_levels WHERE level>0 AND level<=5
+        GROUP BY level
+        ORDER BY level;")->getResult();
         $pool1Total = $this->db->query("SELECT SUM(upgrade_balance) as upgrade_balance, SUM(income) as income FROM pool1 WHERE member_id='$mid'")->getRow();
 
         $pool2 = $this->db->query("SELECT * FROM pool2 WHERE member_id='$mid'")->getResult();
+
+        $pool2D = $this->db->query("WITH RECURSIVE member_levels AS (
+            SELECT 
+                m.user_id,
+                m.member_id,
+                m.upline_id,
+                0 AS level
+            FROM (
+                SELECT *
+                FROM pool2
+                WHERE member_id = '$mid'
+                ORDER BY user_id ASC
+                LIMIT 1
+            ) AS m
+        
+            UNION ALL
+        
+            -- Recursive query: get children
+            SELECT 
+                c.user_id,
+                c.member_id,
+                c.upline_id,
+                ml.level + 1 AS level
+            FROM pool2 c
+            INNER JOIN member_levels ml 
+                ON c.upline_id = ml.user_id
+        )
+        SELECT 
+            level,
+            COUNT(*) AS total
+        FROM member_levels WHERE level>0 AND level<=5
+        GROUP BY level
+        ORDER BY level;")->getResult();
         $pool2Total = $this->db->query("SELECT SUM(upgrade_balance) as upgrade_balance, SUM(income) as income FROM pool2 WHERE member_id='$mid'")->getRow();
 
         $pool3 = $this->db->query("SELECT * FROM pool3 WHERE member_id='$mid'")->getResult();
+        $pool3D = $this->db->query("WITH RECURSIVE member_levels AS (
+            SELECT 
+                m.user_id,
+                m.member_id,
+                m.upline_id,
+                0 AS level
+            FROM (
+                SELECT *
+                FROM pool3
+                WHERE member_id = '$mid'
+                ORDER BY user_id ASC
+                LIMIT 1
+            ) AS m
+        
+            UNION ALL
+        
+            -- Recursive query: get children
+            SELECT 
+                c.user_id,
+                c.member_id,
+                c.upline_id,
+                ml.level + 1 AS level
+            FROM pool3 c
+            INNER JOIN member_levels ml 
+                ON c.upline_id = ml.user_id
+        )
+        SELECT 
+            level,
+            COUNT(*) AS total
+        FROM member_levels WHERE level>0 AND level<=5
+        GROUP BY level
+        ORDER BY level;")->getResult();
         $pool3Total = $this->db->query("SELECT SUM(upgrade_balance) as upgrade_balance, SUM(income) as income FROM pool3 WHERE member_id='$mid'")->getRow();
 
         $pool_income = $pool1Total->income??0 + $pool2Total->income??0 + $pool3Total->income??0;
         $pool_upgrade = $pool1Total->upgrade_balance??0 + $pool2Total->upgrade_balance??0 + $pool3Total->upgrade_balance??0;
         return [
             'pool1'=>$pool1, 'pool2'=>$pool2, 'pool3'=>$pool3,
+            'pool1D'=>$pool1D, 'pool2D'=>$pool2D, 'pool3D'=>$pool3D,
             'pool_income'=>$pool_income,
             'pool_upgrade'=>$pool_upgrade,
         ];
@@ -736,6 +834,7 @@ class Upgrade extends Model
         $level = 0;
         $pair = 0;
         $autopool = 0;
+        $pool_upgrade=0;
         $salary = 0;
         $royality = 0;
         $pool=[];
@@ -756,7 +855,8 @@ class Upgrade extends Model
             }
 
             $pool = $this->poolIncomeData($mid);
-            $autopool = $pool['pool_income'];
+            $autopool = round($pool['pool_income'], 0);
+            $pool_upgrade = round($pool['pool_upgrade'], 0);
 
             $levelIncome = $this->levelIncomeData($mid);
             $level = $levelIncome['total'];
@@ -796,6 +896,7 @@ class Upgrade extends Model
             'levelIncome' => $level,
             'pairIncome' => $pair,
             'autopoolIncome' => $autopool,
+            'pool_upgrade' => $pool_upgrade,
             'pool' => $pool,
             'salaryIncome' => $salary,
             'royalityIncome' => $royality,
