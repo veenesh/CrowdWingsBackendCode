@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Controllers\Api\Auth;
 use CodeIgniter\Model;
+use DateTime;
 
 use function PHPUnit\Framework\isNull;
 
@@ -827,6 +828,40 @@ class Upgrade extends Model
     public function income($mid)
     {
         $memberD = $this->db->query("SELECT wallet, user_wallet FROM members WHERE member_id='$mid'")->getRow();
+
+        $all_upgrades = $this->db->query("SELECT *, date(date) as up_date FROM upgrades WHERE member_id='$mid' AND withdrawal_limit<1000")->getResult();
+  
+        foreach($all_upgrades as $up){
+            $up_date = $up->up_date;
+            $count_total = $this->db->query("SELECT count(*) as total
+            FROM tree_data AS t
+            INNER JOIN upgrades AS u 
+                ON u.member_id = t.member_added
+            WHERE t.member_id = '$mid'
+              AND t.date >= '$up_date'
+              AND t.date <= DATE_ADD('$up_date', INTERVAL 2 MONTH)")->getRow()->total??0;
+
+              if($count_total>=2){
+                $this->db->query("update upgrades SET withdrawal_limit=1000 WHERE id=$up->id");
+              }else {
+                // Condition 2: every month after 2 months → +100 until 1000
+                $today = date('Y-m-d');
+                $months_passed = (new DateTime($up_date))->diff(new DateTime($today))->m 
+                                 + (new DateTime($up_date))->diff(new DateTime($today))->y * 12;
+        
+                if ($months_passed > 2) { // only start after 2 months
+                    $extra_months = $months_passed - 2; // months beyond 2 months
+                    $increment = $extra_months * 100;
+        
+                    $new_limit = min(1000, $up->withdrawal_limit + $increment);
+        
+                    if ($new_limit > $up->withdrawal_limit) {
+                        $this->db->query("UPDATE upgrades SET withdrawal_limit=$new_limit WHERE id={$up->id}");
+                    }
+                }
+            }
+           
+        }
 
         $upgrade = $this->db->query("SELECT SUM(upgrade_amount) as total, SUM(withdrawal_limit) as total_limit FROM upgrades WHERE member_id='$mid'")->getRow();
 
