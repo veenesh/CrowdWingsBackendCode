@@ -50,11 +50,12 @@ class TronWeb extends Model
             echo "Raw Response: " . $response;
         }
         
-        
+        curl_close($curl);
+        exit;
         curl_close($curl);
         $response = json_decode($response);
-        if (isset($response->result->transactions)) {
-            foreach ($response->result->transactions as $result) {
+        if(isset($response->result)){
+            foreach ($response->result as $result) {
                 if ($result->to == $address) {
                     $amount = $result->value / 1000000000000000000;
                     $data = [
