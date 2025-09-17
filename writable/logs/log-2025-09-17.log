@@ -53,3 +53,69 @@ INFO - 2025-09-17 10:01:49 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2025-09-17 10:01:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-09-17 10:01:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-09-17 10:01:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-17 10:32:29 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 48.
+ 1 APPPATH/Models/TronWeb.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(199): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-17 10:33:51 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 48.
+ 1 APPPATH/Models/TronWeb.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(199): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-17 10:37:21 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATE pool1 t
+            JOIN downline d ON t.user_id = d.user_id
+         ...' at line 22 in /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query()
+#1 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/Upgrade.php(266): CodeIgniter\Database\BaseConnection->query()
+#4 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/Upgrade.php(387): App\Models\Upgrade->addToPool()
+#5 /home/u693298231/domains/crowdwings.net/public_html/app/app/Controllers/Api/Income.php(122): App\Models\Upgrade->upgrade()
+#6 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(942): App\Controllers\Api\Income->upgrade()
+#7 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#8 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/u693298231/domains/crowdwings.net/public_html/app/index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-17 10:37:21 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATE pool1 t
+            JOIN downline d ON t.user_id = d.user_id
+         ...' at line 22
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Models/Upgrade.php(266): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/Upgrade.php(387): App\Models\Upgrade->addToPool()
+ 3 APPPATH/Controllers/Api/Income.php(122): App\Models\Upgrade->upgrade()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->upgrade()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-17 10:55:36 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 48.
+ 1 APPPATH/Models/TronWeb.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(199): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-17 10:55:57 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 48.
+ 1 APPPATH/Models/TronWeb.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(199): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-17 10:56:21 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 48.
+ 1 APPPATH/Models/TronWeb.php(48): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(199): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()

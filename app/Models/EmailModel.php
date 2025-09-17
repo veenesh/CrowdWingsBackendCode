@@ -80,7 +80,7 @@ class EmailModel extends Model
 		
 		$message = "<table style='width:100%; border:1px solid #ccc; padding:10px;'>
 			<tr style='text-align:center;'>
-				<td><img src='https://mirusmaker.com/img/user/header-logo-Uw3Zp9.png' style='max-width:170px;'><br /><img src='https://mirusmaker.com/cong.gif' style='max-width:120px;'></td>
+				<td><img src='https://web.crowdwings.net/assets/img/mobileux/image-2.png' style='max-width:170px;'><br /><img src='https://web.crowdwings.net/cu.gif' style='max-width:120px;'></td>
 			</tr>
 			<tr>
 			<td>
@@ -112,7 +112,7 @@ class EmailModel extends Model
 		
 		$message = "<table style='width:100%; border:1px solid #ccc; padding:10px;'>
 			<tr style='text-align:center; widht'>
-				<td><img src='https://mirusmaker.com/img/user/header-logo-Uw3Zp9.png' style='max-width:120px;'></td>
+				<td><img src='https://web.crowdwings.net/assets/img/mobileux/image-2.png' style='max-width:120px;'></td>
 			</tr>
 			<tr>
 			<td>
