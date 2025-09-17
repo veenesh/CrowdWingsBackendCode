@@ -74,6 +74,7 @@ phpunit
 vendor/
 writable/debugbar/*
 writable/session/*
+writable/log/*
 
 #-------------------------
 # IDE / Development Files
