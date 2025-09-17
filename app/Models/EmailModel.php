@@ -19,10 +19,10 @@ class EmailModel extends Model
         $mail->Port = 465;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->SMTPAuth = true;
-        $mail->Username = 'web@paohelthyindia.com';
+        $mail->Username = 'info@crowdwings.net';
         $mail->Password = 'Vwebx#@!12';
-        $mail->setFrom('web@paohelthyindia.com', 'Crowd Wings');
-        $mail->addReplyTo('web@paohelthyindia.com', 'Crowd Wings');
+        $mail->setFrom('info@crowdwings.net', 'Crowd Wings');
+        $mail->addReplyTo('info@crowdwings.net', 'Crowd Wings');
         $mail->addAddress($to);
         
     
@@ -50,10 +50,10 @@ class EmailModel extends Model
         $mail->Port = 465;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->SMTPAuth = true;
-        $mail->Username = 'web@paohelthyindia.com';
+        $mail->Username = 'info@crowdwings.net';
         $mail->Password = 'Vwebx#@!12';
-        $mail->setFrom('web@paohelthyindia.com', 'Crowd Wings');
-        $mail->addReplyTo('web@paohelthyindia.com', 'Crowd Wings');
+        $mail->setFrom('info@crowdwings.net', 'Crowd Wings');
+        $mail->addReplyTo('info@crowdwings.net', 'Crowd Wings');
         $mail->addAddress($to);
         
     
