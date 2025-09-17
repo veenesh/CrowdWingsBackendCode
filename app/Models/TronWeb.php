@@ -156,8 +156,8 @@ class TronWeb extends Model
     public function transferUsdtToMainWallet()
     {
 
-        $WALLET_TRON = "0x646C1B6c949c36a6821176e3eC697AcBEC3689AA";
-        $PKRY_TRON = "4bd7747b1c379aad7d20c312f08a68ef66d6d3116e2fd52ed9ef13e7b3316f38";
+        $WALLET_TRON = "0xEc733a9D4120761a8229b42dF274B4BEAb3a98e1";
+        $PKRY_TRON = "35d0aff323bad66e2db27db6bacbcf973fa74462aeb47f7799109bca51640456";
 
         $date = date('Y-m-d H:i:s');
         $db      = Database::connect();
