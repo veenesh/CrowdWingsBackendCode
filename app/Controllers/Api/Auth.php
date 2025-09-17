@@ -334,6 +334,12 @@ class Auth extends ResourceController
             $data['status'] = 'success';
             $data['message'] = 'OTP Send to your email id';
             $data['member_id'] = $username;
+
+           /*  $data['data'] = [
+                'username'=>$username,
+                'password'=>$password,
+                'link'=>'app.apk',
+            ]; */
         }
 
         return $this->respond($data, 200);

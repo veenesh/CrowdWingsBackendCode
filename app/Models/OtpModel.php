@@ -44,6 +44,7 @@ class OtpModel extends Model
     {
         
         $result = $this->db->query("SELECT * FROM otp WHERE member_id='$member_id' AND otp_for='$type' AND status=0 ORDER BY id DESC")->getRow();
+        $mem = $this->db->query("SELECT member_id, password, 'app.apk' as link FROM members WHERE member_id='$member_id'")->getRow();
         
         if (isset($result->id)) {
             if ($result->otp == $otp) {
@@ -53,6 +54,7 @@ class OtpModel extends Model
                 $this->db->query("UPDATE otp SET status=1 WHERE id=$result->id");
                 return [
                     'status' => 'success',
+                    'data'=>$mem,
                     'message' => 'OTP validated successfully...',
                 ];
             }

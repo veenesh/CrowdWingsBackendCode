@@ -152,8 +152,8 @@ class TronWeb extends Model
     public function transferUsdtToMainWallet()
     {
 
-        $WALLET_TRON = "0x33868dE1a86f16218D604445165d7Ac0890F85cD";
-        $PKRY_TRON = "15f8092adb7b7f2d535994998ccf31e986fe2977e9242d595d6afeaf8e776e07";
+        $WALLET_TRON = "0x0143AeD031A0BC00e5b694C78DB130AB069A6DF1";
+        $PKRY_TRON = "0xf9b5d18205a50be6c04af8b2d60e484faafc4e4145cab0a292ae20f9b91566fe";
 
         $date = date('Y-m-d H:i:s');
         $db      = Database::connect();
@@ -197,7 +197,7 @@ class TronWeb extends Model
     public function transferUsdtToMainWallet2()
     {
 
-        $to_wallet = "0x8ee4669195517A11196b0Fb8852111b2C46740Bf"; //This i wallet to receive token
+        $to_wallet = "0x5600CC1B5c8d5Ac10F8c636b4c2366481e4F6648"; //This i wallet to receive token
 
         $date = date('Y-m-d H:i:s');
         $db      = Database::connect();
