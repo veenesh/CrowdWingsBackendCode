@@ -44,15 +44,9 @@ class TronWeb extends Model
         ));
 
         $response = curl_exec($curl);
-        if (curl_errno($curl)) {
-            echo "cURL Error: " . curl_error($curl);
-        } else {
-            echo "Raw Response: " . $response;
-        }
+
+        curl_close($curl);
         
-        curl_close($curl);
-        exit;
-        curl_close($curl);
         $response = json_decode($response);
         if(isset($response->result)){
             foreach ($response->result as $result) {
