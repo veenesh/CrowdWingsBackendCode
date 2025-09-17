@@ -23,14 +23,17 @@ class TronWeb extends Model
 
     public function usdtTxn($address)
     {
+        
         $db      = Database::connect();
 
         $contractAddress = "0x55d398326f99059fF775485246999027B3197955";
 
         $curl = curl_init();
-
+        
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.bscscan.com/api?module=account&action=tokentx&contractaddress=$contractAddress&address=$address&page=1&offset=5&startblock=0&endblock=999999999&sort=asc&apikey=22465KA6J34AVB89R33TYZAV8A2RHZ1FX1",
+            CURLOPT_URL => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokentx&contractaddress=$contractAddress&address=$address&page=1&offset=5&startblock=0&endblock=999999999&sort=asc&apikey=YRG9WQ75KEUYAJRR83QCQF2XZKGAFJNRRP",
+            
+
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -41,11 +44,17 @@ class TronWeb extends Model
         ));
 
         $response = curl_exec($curl);
-
+        if (curl_errno($curl)) {
+            echo "cURL Error: " . curl_error($curl);
+        } else {
+            echo "Raw Response: " . $response;
+        }
+        
+        
         curl_close($curl);
         $response = json_decode($response);
-        if(isset($response->result)){
-            foreach ($response->result as $result) {
+        if (isset($response->result->transactions)) {
+            foreach ($response->result->transactions as $result) {
                 if ($result->to == $address) {
                     $amount = $result->value / 1000000000000000000;
                     $data = [
