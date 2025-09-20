@@ -180,26 +180,20 @@ class Upgrade extends Model
 
     public function createLevelIncome($mid)
     {
-        $levels = $this->db->query("
-            WITH RECURSIVE teamlevel AS (
-                SELECT member_id, sponsor_id, 1 as level 
-                FROM members 
-                WHERE sponsor_id = '$mid'
-            
-                UNION ALL
-            
-                SELECT 
-                    m.member_id,
-                    m.sponsor_id,
-                    t.level + 1
-                FROM members m
-                INNER JOIN teamlevel t ON m.sponsor_id = t.member_id
-                WHERE t.level < 21
-            )
-            SELECT tl.*, u.id as up_id 
-            FROM teamlevel tl
-            INNER JOIN upgrades u ON u.member_id = tl.member_id
-        ")->getResult();
+        $levels = $this->db->query("WITH RECURSIVE team AS (
+            SELECT id, member_id, sponsor_id, 0 AS level
+            FROM members
+            WHERE member_id = '$mid'
+        
+            UNION ALL
+        
+            SELECT m.id, m.member_id, m.sponsor_id, t.level + 1
+            FROM members m
+            INNER JOIN team t ON m.member_id = t.sponsor_id
+            WHERE t.level < 21 
+        )
+        SELECT tt.* 
+        FROM team as tt INNER JOIN upgrades as u  ON u.member_id=tt.member_id WHERE tt.level>0;")->getResult();
 
         $LEVELINCOME = new LevelIncome();
         $date = date('Y-m-d');
@@ -385,6 +379,9 @@ class Upgrade extends Model
 
             $this->db->query("UPDATE members SET wallet=wallet-$amount WHERE member_id='$mid'");
             $this->addToPool('pool1', $mid, $result, 1);
+
+            $this->createLevelIncome($mid);
+            
             $data = [
                 'status' => 'success',
                 'message' => 'Upgraded successfully',
