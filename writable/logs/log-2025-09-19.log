@@ -1,0 +1,94 @@
+CRITICAL - 2025-09-19 05:46:30 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 05:46:33 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 05:50:39 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:03:30 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:04:57 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:21:34 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:33:01 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:42:00 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 06:58:51 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-19 11:18:33 --> mysqli_sql_exception: MySQL server has gone away in /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query()
+#1 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/MemberModel.php(90): CodeIgniter\Database\BaseConnection->query()
+#4 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/MemberModel.php(72): App\Models\MemberModel->getUnderId()
+#5 /home/u693298231/domains/crowdwings.net/public_html/app/app/Controllers/Api/Auth.php(301): App\Models\MemberModel->updateTree()
+#6 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(942): App\Controllers\Api\Auth->register()
+#7 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#8 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/u693298231/domains/crowdwings.net/public_html/app/index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-19 11:18:33 --> MySQL server has gone away
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Models/MemberModel.php(90): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/MemberModel.php(72): App\Models\MemberModel->getUnderId()
+ 3 APPPATH/Controllers/Api/Auth.php(301): App\Models\MemberModel->updateTree()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Auth->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()

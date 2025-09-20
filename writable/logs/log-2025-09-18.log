@@ -1,0 +1,16 @@
+CRITICAL - 2025-09-18 04:54:32 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-18 05:47:37 --> foreach() argument must be of type array|object, string given
+in APPPATH/Models/TronWeb.php on line 52.
+ 1 APPPATH/Models/TronWeb.php(52): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Api/Income.php(200): App\Models\TronWeb->usdtTxn()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->addFund()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
