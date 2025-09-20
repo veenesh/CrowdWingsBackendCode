@@ -379,13 +379,54 @@ class MemberModel extends Model
         SELECT (@sr := @sr + 1) AS sr, member_id, name, sponsor_id, position, date(active_date) as active_date, total FROM(select *, (SELECT sum(upgrade_amount) FROM upgrades WHERE member_id=TeamLeft.member_id) as total from TeamLeft where active_date is not null GROUP BY member_id)aa
              ORDER BY active_date DESC")->getResult();
         }
-        return $this->db->query("with recursive TeamLeft as(
+        
+        
+        return $this->db->query("WITH RECURSIVE TeamLeft AS (
+                                
+                                SELECT  
+                                    m.member_id, 
+                                    m.name, 
+                                    m.sponsor_id, 
+                                    m.upline, 
+                                    m.position, 
+                                    m.created_at AS date,
+                                    1 AS level
+                                FROM members AS m 
+                                WHERE m.upline = '$mid' AND m.position = '$level'
+                            
+                                UNION ALL
+                            
+                                
+                                SELECT  
+                                    mm.member_id, 
+                                    mm.name, 
+                                    mm.sponsor_id, 
+                                    mm.upline, 
+                                    mm.position, 
+                                    mm.created_at AS date,
+                                    tl.level + 1 AS level
+                                FROM TeamLeft AS tl
+                                INNER JOIN members AS mm ON tl.member_id = mm.upline
+                            )
+                            SELECT 
+                                (@sr := @sr + 1) AS sr, 
+                                member_id, 
+                                name, 
+                                sponsor_id, 
+                                position, 
+                                date AS joining_date,
+                                level
+                            FROM TeamLeft, (SELECT @sr := 0) AS init;
+                            ")->getResult();
+        
+        
+        /*return $this->db->query("with recursive TeamLeft as(
             select  m.member_id, m.name, m.sponsor_id, m.upline, m.position, m.created_at as date from members as m where m.upline='$mid' and m.position='$level'
             UNION 
             select mm.member_id, mm.name, mm.sponsor_id, mm.upline, mm.position, mm.created_at as date from TeamLeft as tl
             inner join members as mm on tl.member_id=mm.upline
         )
-        select (@sr := @sr + 1) AS sr, member_id, name, sponsor_id, position, date as joining_date from TeamLeft ORDER BY date DESC;")->getResult();
+        select (@sr := @sr + 1) AS sr, member_id, name, sponsor_id, position, date as joining_date from TeamLeft ORDER BY date DESC;")->getResult();*/
     }
 
     public function changePassword($mid, $old, $new){

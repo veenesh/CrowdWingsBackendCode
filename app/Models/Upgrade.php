@@ -212,9 +212,9 @@ class Upgrade extends Model
             }
 
             $data[] = [
-                'member_id'     => $mid,              // who gets the income
+                'member_id'     => $res->member_id,              // who gets the income
                 'type'          => 'level',
-                'income_from'   => $res->member_id,   // downline source
+                'income_from'   => $mid,   // downline source
                 'level'         => $res->level,
                 'unit_upgrade'  => 100,
                 'member_daily'  => 0,
@@ -257,7 +257,7 @@ class Upgrade extends Model
                 'up_id' => $up_id,
             ]);
 
-            $this->db->query("WITH RECURSIVE downline AS (
+            $poolIncomes = $this->db->query("WITH RECURSIVE downline AS (
                 SELECT 
                     user_id,
                     upline_id,
@@ -278,11 +278,15 @@ class Upgrade extends Model
                     ON p.user_id = d.upline_id
                 WHERE d.level < 5
             )
-            UPDATE {$table} t
+            SELECT * FROM downline d WHERE d.level>0")->getResult();
+            foreach($poolIncomes as $pi){
+                $this->db->query("UPDATE {$table} as t SET t.income = t.income + {$income},
+                t.upgrade_balance = t.upgrade_balance + {$income} WHERE t.user_id='$pi->user_id'");
+            }
+/*             UPDATE {$table} t
             JOIN downline d ON t.user_id = d.user_id
             SET t.income = t.income + {$income},
-                t.upgrade_balance = t.upgrade_balance + {$income} WHERE d.level>0");
-
+                t.upgrade_balance = t.upgrade_balance + {$income} WHERE d.level>0 */
             $upgrade_balance_limit = $income * 62;
             if ($next_table != '') {
 

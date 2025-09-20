@@ -126,3 +126,50 @@ INFO - 2025-09-20 06:25:48 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2025-09-20 06:25:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-09-20 06:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-09-20 06:25:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-09-20 06:30:14 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATE pool1 t
+            JOIN downline d ON t.user_id = d.user_id
+         ...' at line 22 in /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query()
+#1 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/Upgrade.php(260): CodeIgniter\Database\BaseConnection->query()
+#4 /home/u693298231/domains/crowdwings.net/public_html/app/app/Models/Upgrade.php(381): App\Models\Upgrade->addToPool()
+#5 /home/u693298231/domains/crowdwings.net/public_html/app/app/Controllers/Api/Income.php(122): App\Models\Upgrade->upgrade()
+#6 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(942): App\Controllers\Api\Income->upgrade()
+#7 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#8 /home/u693298231/domains/crowdwings.net/public_html/app/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/u693298231/domains/crowdwings.net/public_html/app/index.php(85): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-20 06:30:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATE pool1 t
+            JOIN downline d ON t.user_id = d.user_id
+         ...' at line 22
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Models/Upgrade.php(260): CodeIgniter\Database\BaseConnection->query()
+ 2 APPPATH/Models/Upgrade.php(381): App\Models\Upgrade->addToPool()
+ 3 APPPATH/Controllers/Api/Income.php(122): App\Models\Upgrade->upgrade()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Api\Income->upgrade()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-20 07:22:40 --> Wrong number of segments
+in FCPATH/vendor/firebase/php-jwt/src/JWT.php on line 109.
+ 1 APPPATH/Filters/ApiFilter.php(55): Firebase\JWT\JWT::decode()
+ 2 SYSTEMPATH/Filters/Filters.php(184): App\Filters\ApiFilter->before()
+ 3 SYSTEMPATH/CodeIgniter.php(474): CodeIgniter\Filters\Filters->run()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-20 07:23:00 --> Wrong number of segments
+in FCPATH/vendor/firebase/php-jwt/src/JWT.php on line 109.
+ 1 APPPATH/Filters/ApiFilter.php(55): Firebase\JWT\JWT::decode()
+ 2 SYSTEMPATH/Filters/Filters.php(184): App\Filters\ApiFilter->before()
+ 3 SYSTEMPATH/CodeIgniter.php(474): CodeIgniter\Filters\Filters->run()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-20 07:29:13 --> Wrong number of segments
+in FCPATH/vendor/firebase/php-jwt/src/JWT.php on line 109.
+ 1 APPPATH/Filters/ApiFilter.php(55): Firebase\JWT\JWT::decode()
+ 2 SYSTEMPATH/Filters/Filters.php(184): App\Filters\ApiFilter->before()
+ 3 SYSTEMPATH/CodeIgniter.php(474): CodeIgniter\Filters\Filters->run()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(85): CodeIgniter\CodeIgniter->run()
