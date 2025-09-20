@@ -75,6 +75,7 @@ vendor/
 writable/debugbar/*
 writable/session/*
 writable/log/*
+/writable/log/*
 
 #-------------------------
 # IDE / Development Files
