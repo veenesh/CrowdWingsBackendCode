@@ -290,7 +290,7 @@ class MemberModel extends Model
     		left join upgrades as uu on uu.member_id=mm.member_id
         )
         select count(*) as total from(select * from TeamLeft where active_date is not null GROUP BY member_id)aa
-        ")->getRow()->total;
+        ")->getRow()->total??0;
 
         $teamRigtActive =  $this->db->query("
         with recursive TeamLeft as(
@@ -304,7 +304,7 @@ class MemberModel extends Model
     		left join upgrades as uu on uu.member_id=mm.member_id
         )
         select count(*) as total from(select * from TeamLeft where active_date is not null GROUP BY member_id)aa;
-        ")->getRow()->total;
+        ")->getRow()->total??0;
         
         
         
@@ -342,10 +342,11 @@ class MemberModel extends Model
         return [
             'teamDirect'=>$teamDirect,
             'teamDirectActive'=>$teamDirectActive,
+            'teamDirectInActive'=>$teamDirect-$teamDirectActive,
             'teamLeft'=>$teamLeft,
             'teamRight'=>$teamRight,
             'teamLeftActive'=>$teamLeftActive,
-            'teamRightActive'=>$teamRigtActive,
+            'teamRigtActive'=>$teamRigtActive,
             'todayBusiness'=>$todayBusiness,
             'teamLeftInActive'=>$teamLeftInActive,
             'teamRigtInActive'=>$teamRigtInActive
@@ -381,6 +382,10 @@ class MemberModel extends Model
         
         if($level=='direct active'){
             return $this->db->query("SELECT (@sr := @sr + 1) AS sr, member_id, name, sponsor_id , upline, active_date, upgrade FROM (select m.member_id, m.name, sponsor_id, upline, date(u.date) as active_date, (SELECT sum(upgrade_amount) FROM upgrades WHERE member_id=m.member_id) as upgrade from members as m INNER JOIN upgrades as u ON u.member_id=m.member_id where m.sponsor_id='$mid' GROUP BY m.member_id ORDER BY u.date DESC)aa;")->getResult();
+        }
+
+        if($level=='direct inactive'){
+            return $this->db->query("SELECT (@sr := @sr + 1) AS sr, member_id, name, sponsor_id , upline, active_date, upgrade FROM (select m.member_id, m.name, sponsor_id, upline, date(u.date) as active_date, (SELECT sum(upgrade_amount) FROM upgrades WHERE member_id=m.member_id) as upgrade from members as m LEFT JOIN upgrades as u ON u.member_id=m.member_id where m.sponsor_id='$mid' GROUP BY m.member_id ORDER BY u.date DESC)aa WHERE upgrade is null;")->getResult();
         }
         
         if($level=='left active'){

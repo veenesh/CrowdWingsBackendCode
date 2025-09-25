@@ -321,6 +321,7 @@ class Upgrade extends Model
             FROM {$table}
             WHERE upgrade_balance >= {$upgrade_balance_limit} AND user_id NOT IN(SELECT user_id FROM {$next_table})")->getResult();
                 foreach ($results as $rr) {
+                    $this->db->query("UPDATE {$table} SET upgrade_balance=0 WHERE id=$rr->id");
                     $this->addToPool($next_table, $rr->member_id, $rr->up_id, $next_income);
                 }
             }
@@ -1264,7 +1265,22 @@ class Upgrade extends Model
         }
         
         $totalIncome = $this->db->query("SELECT SUM(income) as total FROM salary_income WHERE member_id='$mid'")->getRow()->total ?? 0;
-        $roiData = $this->db->query("SELECT `date`, `total_achiever`, `total_id`, `total_amount`, `rank`, `income` FROM salary_income WHERE member_id='$mid' ORDER BY id DESC ")->getResult();
+        $roiData = $this->db->query("SELECT 
+                                        `date`, 
+                                        `total_achiever`, 
+                                        `total_id`, 
+                                        `total_amount`, 
+                                        CASE 
+                                            WHEN `rank` = 1 THEN 'Silver'
+                                            WHEN `rank` = 2 THEN 'Gold'
+                                            WHEN `rank` = 3 THEN 'Diamond'
+                                            ELSE 'Unknown'
+                                        END AS `rank`, 
+                                        `income` 
+                                    FROM salary_income 
+                                    WHERE member_id='$mid' 
+                                    ORDER BY id DESC;
+                                    ")->getResult();
 
         return [
             'total' => $totalIncome,
