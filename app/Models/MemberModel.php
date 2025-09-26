@@ -346,7 +346,7 @@ class MemberModel extends Model
             'teamLeft'=>$teamLeft,
             'teamRight'=>$teamRight,
             'teamLeftActive'=>$teamLeftActive,
-            'teamRigtActive'=>$teamRigtActive,
+            'teamRightActive'=>$teamRigtActive,
             'todayBusiness'=>$todayBusiness,
             'teamLeftInActive'=>$teamLeftInActive,
             'teamRigtInActive'=>$teamRigtInActive
