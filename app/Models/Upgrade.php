@@ -868,13 +868,14 @@ class Upgrade extends Model
 
         $all_upgrades = $this->db->query("SELECT *, date(date) as up_date FROM upgrades WHERE member_id='$mid' AND withdrawal_limit<1000")->getResult();
 
+        $i=1;
         foreach ($all_upgrades as $up) {
             $up_date = $up->up_date;
             $count_total = $this->db->query("SELECT count(*) as total FROM members as m
                                         INNER JOIN upgrades as u ON u.member_id=m.member_id
-                                        WHERE m.sponsor_id='$mid' AND date(u.date)>='$up_date' AND date(u.date) <= DATE_ADD('$up_date', INTERVAL 2 MONTH);")->getRow()->total ?? 0;
+                                        WHERE m.sponsor_id='$mid'")->getRow()->total ?? 0;
 
-            if ($count_total >= 2) {
+            if ($count_total >= 2*$i) {
                 $this->db->query("update upgrades SET withdrawal_limit=1000 WHERE id=$up->id");
             } else {
                 // Condition 2: every month after 2 months → +100 until 1000
@@ -893,6 +894,7 @@ class Upgrade extends Model
                     }
                 }
             }
+            $i++;
         }
 
         $upgrade = $this->db->query("SELECT SUM(upgrade_amount) as total, SUM(withdrawal_limit) as total_limit FROM upgrades WHERE member_id='$mid'")->getRow();
