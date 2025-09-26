@@ -922,8 +922,8 @@ class Upgrade extends Model
             }
 
             $pool = $this->poolIncomeData($mid);
-            $autopool = round($pool['pool_income'], 0);
-            $pool_upgrade = round($pool['pool_upgrade'], 0);
+            $autopool = $pool['pool_income'];
+            $pool_upgrade = $pool['pool_upgrade'];
 
             $levelIncome = $this->levelIncomeData($mid);
             $level = $levelIncome['total'];
