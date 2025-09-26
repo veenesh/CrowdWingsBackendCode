@@ -175,8 +175,8 @@ class Upgrade extends Model
             $after_capping = $income;
 
             // New carry values
-            $new_left_carry  = $left_with_carry - ($total_pair);
-            $new_right_carry = $right_with_carry - ($total_pair);
+            $new_left_carry  = $left_with_carry - ($pair);
+            $new_right_carry = $right_with_carry - ($pair);
 
             // --- Insert ---
             $this->db->table('matching_income')->insert([
