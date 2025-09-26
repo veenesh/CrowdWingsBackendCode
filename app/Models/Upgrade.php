@@ -905,7 +905,7 @@ class Upgrade extends Model
         $salary = 0;
         $royality = 0;
         $total_pair = 0;
-        $$total_pairR = 0;
+        $total_pairR = 0;
         $pool = [];
         $wallet_balance = $memberD->wallet;
 
