@@ -367,13 +367,13 @@ class Upgrade extends Model
             $capping = $totalB - $limit;
         }
 
-        /* if ($limitRemaining != 0) {
+        if ($limitRemaining != 0) {
             $data = [
                 'status' => 'error',
                 'message' => 'You already have an active income, Wait to complete it',
             ];
             return $data;
-        } */
+        }
 
         $walletBalance = 0;
         $resultM = $this->db->query("SELECT * FROM members WHERE member_id='$mid'")->getRow();
