@@ -929,6 +929,7 @@ class Upgrade extends Model
             $salaryIncome = $this->salaryIncomeData($mid);
             $salary = $salaryIncome['total'];
             $total_pair = $salaryIncome['total_pair'];
+            $total_pairR = $salaryIncome['total_pairR'];
 
 
             $levelIncome = $this->levelIncomeData($mid);
@@ -967,6 +968,8 @@ class Upgrade extends Model
         $sal1 = 'Pair 25/'.$total_pair;
         $sal2 = 'Pair 50/'.$total_pair;
         $sal3 = 'Pair 100/'.$total_pair;
+        $sal4 = 'Pair 500/'.$total_pairR;
+        
         if($total_pair>=25){
             $sal1 = "Achieved";
         }
@@ -974,6 +977,9 @@ class Upgrade extends Model
             $sal2 = "Achieved";
         }
         if($total_pair>=100){
+            $sal3 = "Achieved";
+        }
+        if($total_pairR>=500){
             $sal3 = "Achieved";
         }
 
@@ -1015,7 +1021,7 @@ class Upgrade extends Model
                 [
                     'img_src' => 'assets/img/platinum.png',
                     'title' => 'Platinum',
-                    'description' => 'Pair 500/--',
+                    'description' => $sal4,
                 ]
             ],
         ];
@@ -1291,11 +1297,55 @@ class Upgrade extends Model
 
     public function salaryIncomeData($mid){
         $current_date = date('Y-m-d');
+        
+        $royality_date = $this->db->query("SELECT * FROM months WHERE type='royality' ORDER BY id DESC")->getRow();
+        
+        if($royality_date){
+                $is_added = $this->db->query("SELECT count(*) as total FROM salary_income WHERE date='$royality_date->end_on' AND type='royality'")->getRow()->total??0;
+        if(!$is_added){
+            if($royality_date->end_on<$current_date){
+                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$royality_date->start_from->end_on' AND '$royality_date->end_on'")->getRow()->total??0;
+                $total_income = $total_id*2;
+                
+                
+                $results  = $this->db->query("SELECT * FROM (SELECT 
+                                mi.member_id,
+                                SUM(mi.pair) AS total
+                            FROM matching_income mi
+                            JOIN (
+                                SELECT member_id, DATE(date) AS active_date
+                                FROM upgrades
+                                WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
+                            ) u ON u.member_id = mi.member_id
+                            WHERE mi.date BETWEEN '$royality_date->start_from->start_from' AND '$royality_date->end_on'
+                            GROUP BY mi.member_id) aa WHERE total>=500")->getResult();
+                $rank1ID = sizeof($results);
+                if($rank1ID){
+                    $user_income = $total_income/$rank1ID;
+                    foreach($results as $res){
+                        $this->db->table('salary_income')->insert([
+                            'member_id'=>$res->member_id,
+                            'date'=>$royality_date->end_on,
+                            'total_achiever'=>$rank1ID,
+                            'total_id'=>$total_id,
+                            'total_amount'=>$total_income,
+                            'rank'=>1,
+                            'income'=>$user_income,
+                            'type'=>'royality',
+                        ]);
+                    }
+                }
+            }
+        }
+        }
+        
+        
         $salary_date = $this->db->query("SELECT * FROM months WHERE type='salary' ORDER BY id DESC")->getRow();
-        $is_added = $this->db->query("SELECT count(*) as total FROM salary_income WHERE date='$salary_date->end_on'")->getRow();
+        $is_added = $this->db->query("SELECT count(*) as total FROM salary_income WHERE date='$salary_date->end_on' AND type='salary'")->getRow()->total??0;
+   
         if(!$is_added){
             if($salary_date->end_on<$current_date){
-                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$salary_date->salary_date->end_on' AND '$salary_date->end_on'")->getRow()->total??0;
+                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$salary_date->start_from->end_on' AND '$salary_date->end_on'")->getRow()->total??0;
                 $total_income = $total_id*5;
     
                 $results  = $this->db->query("SELECT * FROM (SELECT 
@@ -1307,10 +1357,11 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->salary_date->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=25")->getResult();
                 $rank1ID = sizeof($results);
-                $user_income = $total_income/$rank1ID;
+                if($rank1ID){
+                   $user_income = $total_income/$rank1ID;
                 foreach($results as $res){
                     $this->db->table('salary_income')->insert([
                         'member_id'=>$res->member_id,
@@ -1320,8 +1371,11 @@ class Upgrade extends Model
                         'total_amount'=>$total_income,
                         'rank'=>1,
                         'income'=>$user_income,
+                        'type'=>'salary',
                     ]);
+                } 
                 }
+                
                 
                 
                 $results  = $this->db->query("SELECT * FROM (SELECT 
@@ -1333,10 +1387,11 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->salary_date->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=50")->getResult();
                 $rank2ID = sizeof($results);
-                $user_income = $total_income/$rank2ID;
+                if($rank2ID){
+                    $user_income = $total_income/$rank2ID;
                 foreach($results as $res){
                     $this->db->table('salary_income')->insert([
                         'member_id'=>$res->member_id,
@@ -1346,8 +1401,11 @@ class Upgrade extends Model
                         'total_amount'=>$total_income,
                         'rank'=>2,
                         'income'=>$user_income,
+                        'type'=>'salary',
                     ]);
+                } 
                 }
+                
     
     
                 $results  = $this->db->query("SELECT * FROM (SELECT 
@@ -1359,10 +1417,11 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->salary_date->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=100")->getResult();
                 $rank3ID = sizeof($results);
-                $user_income = $total_income/$rank3ID;
+                if($rank3ID){
+                    $user_income = $total_income/$rank3ID;
                 foreach($results as $res){
                     $this->db->table('salary_income')->insert([
                         'member_id'=>$res->member_id,
@@ -1372,8 +1431,11 @@ class Upgrade extends Model
                         'total_amount'=>$total_income,
                         'rank'=>2,
                         'income'=>$user_income,
+                        'type'=>'salary',
                     ]);
                 }
+                }
+                
                                         
             }
         }
@@ -1387,7 +1449,19 @@ class Upgrade extends Model
         ) u ON u.member_id = mi.member_id
         WHERE mi.date BETWEEN '$salary_date->start_from' AND '$salary_date->end_on' AND
         mi.member_id='$mid'")->getRow()->total??0;
-        $total = $this->db->query("SELECT SUM(income) as total FROM salary_income WHERE member_id='$mid'")->getRow()->total ?? 0;
+        
+        
+        $total_pairR = $this->db->query("SELECT  SUM(mi.pair) AS total
+        FROM matching_income mi
+        JOIN (
+            SELECT member_id, DATE(date) AS active_date
+            FROM upgrades
+            WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
+        ) u ON u.member_id = mi.member_id
+        WHERE mi.date BETWEEN '$royality_date->start_from' AND '$royality_date->end_on' AND
+        mi.member_id='$mid'")->getRow()->total??0;
+        
+        $total = $this->db->query("SELECT SUM(income) as total FROM salary_income WHERE member_id='$mid' AND type='salary'")->getRow()->total ?? 0;
         $data = $this->db->query("SELECT 
                                         `date`, 
                                         `total_achiever`, 
@@ -1401,14 +1475,37 @@ class Upgrade extends Model
                                         END AS `rank`, 
                                         `income` 
                                     FROM salary_income 
-                                    WHERE member_id='$mid' 
+                                    WHERE member_id='$mid' AND type='salary'
                                     ORDER BY id DESC;
                                     ")->getResult();
 
+
+        $totalR = $this->db->query("SELECT SUM(income) as total FROM salary_income WHERE member_id='$mid' AND type='royality'")->getRow()->total ?? 0;
+        $dataR = $this->db->query("SELECT 
+                                        `date`, 
+                                        `total_achiever`, 
+                                        `total_id`, 
+                                        `total_amount`, 
+                                        CASE 
+                                            WHEN `rank` = 1 THEN 'Platiminum'
+                                            ELSE 'Unknown'
+                                        END AS `rank`, 
+                                        `income` 
+                                    FROM salary_income 
+                                    WHERE member_id='$mid' AND type='royality'
+                                    ORDER BY id DESC;
+                                    ")->getResult();
+                                    
+
         return [
             'total_pair' => $total_pair,
+            'total_pairR'=>$total_pairR,
             'total' => $total,
             'data' => $data,
+            
+            'totalR' => $totalR,
+            'dataR' => $dataR,
+            
         ];
         
     }
