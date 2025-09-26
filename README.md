@@ -1,5 +1,23 @@
 # CodeIgniter 4 Application Starter
 
+DELETE FROM pool1 WHERE id>1;
+DELETE FROM pool2 WHERE id>1;
+DELETE FROM pool3 WHERE id>1;
+UPDATE members SET salary_rank=0;
+DELETE FROM upgrades WHERE id>1;
+TRUNCATE level_income;
+TRUNCATE matching_income;
+TRUNCATE salary_income;
+TRUNCATE txn_details;
+TRUNCATE usdt_transfer;
+TRUNCATE roi;
+TRUNCATE message;
+UPDATE pool1 SET income=0, upgrade_balance=0;
+UPDATE pool2 SET income=0, upgrade_balance=0;
+UPDATE pool3 SET income=0, upgrade_balance=0;
+UPDATE upgrades SET withdrawal_limit=200;
+
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.

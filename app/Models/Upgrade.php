@@ -317,7 +317,7 @@ class Upgrade extends Model
             $upgrade_balance_limit = $income * 62;
             if ($next_table != '') {
 
-                $results = $this->db->query("SELECT user_id, member_id, up_id
+                $results = $this->db->query("SELECT id, user_id, member_id, up_id
             FROM {$table}
             WHERE upgrade_balance >= {$upgrade_balance_limit} AND user_id NOT IN(SELECT user_id FROM {$next_table})")->getResult();
                 foreach ($results as $rr) {
@@ -367,13 +367,13 @@ class Upgrade extends Model
             $capping = $totalB - $limit;
         }
 
-        if ($limitRemaining != 0) {
+        /* if ($limitRemaining != 0) {
             $data = [
                 'status' => 'error',
                 'message' => 'You already have an active income, Wait to complete it',
             ];
             return $data;
-        }
+        } */
 
         $walletBalance = 0;
         $resultM = $this->db->query("SELECT * FROM members WHERE member_id='$mid'")->getRow();
