@@ -26,7 +26,7 @@ class AdminFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
-        $UM = new UserModel($this->db);
+        $UM = new UserModel();
         if(!$session->get('admin_id')){
             return redirect()->to('/admin/login');
         }
