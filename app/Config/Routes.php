@@ -104,6 +104,10 @@ $routes->group("api", function ($routes) {
     $routes->get("token/all/crypto", "Api\Token::cryptoToken");
     $routes->post("login", "Api\Auth::index");
     $routes->post("register", "Api\Auth::register");
+
+    $routes->get("register-auto", "Api\Auth::registerAuto");
+
+
     $routes->post("sponsor-name", "Api\Auth::SponsorName");
     $routes->post("forgot-password", "Api\Auth::forgotPassword");
 

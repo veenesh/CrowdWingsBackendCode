@@ -231,6 +231,57 @@ class Auth extends ResourceController
         return $this->respond($data, 200);
     }
 
+    public function registerAuto()
+    {
+        $TRONWEB = new TronWeb();
+        $data = [];
+        $MM = new MemberModel();
+        $total = $_GET['total'];
+        for($i=1; $i<=$total; $i++){
+            $sponsor_id =  $_GET['sponsor_id'];
+        $position =  $_GET['position'];
+        $name =  'User_' . uniqid();
+        $email =  $name."@gmail.com";
+        $phone =  '9898989898';
+        $country_code =  91;
+        $password =  123456;
+
+        $is_user = $MM->where('member_id', $sponsor_id)->first();
+
+        $username = mt_rand(100001, 999999);
+        
+        $address = $TRONWEB->createAddress();
+        $sponsor_data = $MM->findNewSponsor($sponsor_id, $position);
+        
+        $upline_id = $sponsor_data['id'];
+        $new_position = $sponsor_data['position'];
+        $date = date('Y-m-d');
+        $dataIns = [
+            'sponsor_id' => $sponsor_id,
+            'upline' => $upline_id,
+            'position' => $new_position,
+            'member_id' => $username,
+            'username' => $username,
+            'wallet_address' => '0x'.$address->address_base58,
+            'address_hex' => $address->address_hex,
+            'private_key' => $address->private_key,
+            'public_key' => $address->public_key,
+            'name' => $name,
+            'email' => $email,
+            'country_code' => $country_code,
+            'phone' => $phone,
+            'password' => $password,
+            'created_at' => $date,
+            'status' => 1,
+        ];
+        
+        $result = $MM->insert($dataIns);
+        }
+        
+
+        
+    }
+
     public function register()
     {
         
