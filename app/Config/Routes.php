@@ -56,31 +56,31 @@ $routes->get('/cookies-policy', function(){
 
 
 
-$routes->add('/admin/login', 'Auth/Admin::login');
+$routes->add('/admin/login', 'Auth\Admin::login');
 
 
 $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
-    $routes->add('dashboard', 'AdminArea/Admin::dashboard');
+    $routes->add('dashboard', 'AdminArea\Admin::dashboard');
 
-    $routes->add('member/list', 'AdminArea/Admin::memberListAll');
-    $routes->add('member/edit', 'AdminArea/Admin::memberEdit');
-    $routes->add('member/withdrawal', 'AdminArea/Admin::withdrawalList');
+    $routes->add('member/list', 'AdminArea\Admin::memberListAll');
+    $routes->add('member/edit', 'AdminArea\Admin::memberEdit');
+    $routes->add('member/withdrawal', 'AdminArea\Admin::withdrawalList');
     
     
-    $routes->add('vendor/list/all', 'AdminArea/Admin::vendorListAll');
+    $routes->add('vendor/list/all', 'AdminArea\Admin::vendorListAll');
 
-    $routes->add('ad/list', 'AdminArea/Admin::listAd');
+    $routes->add('ad/list', 'AdminArea\Admin::listAd');
 
-    $routes->add('widthrawal/request', 'AdminArea/Income::withdrawalRequest');
-    $routes->add('widthrawal/request-history', 'AdminArea/Income::withdrawalRequestHistory');
-    $routes->add('widthrawal/imps-status', 'AdminArea/Income::impsStatus');
+    $routes->add('widthrawal/request', 'AdminArea\Income::withdrawalRequest');
+    $routes->add('widthrawal/request-history', 'AdminArea\Income::withdrawalRequestHistory');
+    $routes->add('widthrawal/imps-status', 'AdminArea\Income::impsStatus');
 
-    $routes->add('income/adview', 'AdminArea/Income::listAdView');
-    $routes->add('income/withdrawal-request', 'AdminArea/Income::withdrawalRequest');
+    $routes->add('income/adview', 'AdminArea\Income::listAdView');
+    $routes->add('income/withdrawal-request', 'AdminArea\Income::withdrawalRequest');
 
-    $routes->add('topup', 'AdminArea/Admin::topUp');
+    $routes->add('topup', 'AdminArea\Admin::topUp');
 
-    $routes->add('logout', 'AuthAdmin/Admin::logout');
+    $routes->add('logout', 'AuthAdmin\Admin::logout');
 });
 
 

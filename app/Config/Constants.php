@@ -93,4 +93,4 @@ define('EVENT_PRIORITY_NORMAL', 100);
  */
 define('EVENT_PRIORITY_HIGH', 10);
 
-defined('COMPANY_NAME')      || define('COMPANY_NAME', 'Global Trade');
+defined('COMPANY_NAME')      || define('COMPANY_NAME', 'Corwd Wings');

@@ -18,7 +18,7 @@ class Admin extends BaseController
 
     public function login()
     {
-      $UM = new UserModel($this->db);
+      $UM = new UserModel();
       
       
       if(isset($_POST['login'])){
