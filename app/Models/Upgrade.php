@@ -1307,7 +1307,7 @@ class Upgrade extends Model
                 $is_added = $this->db->query("SELECT count(*) as total FROM salary_income WHERE date='$royality_date->end_on' AND type='royality'")->getRow()->total??0;
         if(!$is_added){
             if($royality_date->end_on<$current_date){
-                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$royality_date->start_from->end_on' AND '$royality_date->end_on'")->getRow()->total??0;
+                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$royality_date->start_from' AND '$royality_date->end_on'")->getRow()->total??0;
                 $total_income = $total_id*2;
                 
                 
@@ -1320,7 +1320,7 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$royality_date->start_from->start_from' AND '$royality_date->end_on'
+                            WHERE mi.date BETWEEN '$royality_date->start_from' AND '$royality_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=500")->getResult();
                 $rank1ID = sizeof($results);
                 if($rank1ID){
@@ -1347,8 +1347,8 @@ class Upgrade extends Model
         $is_added = $this->db->query("SELECT count(*) as total FROM salary_income WHERE date='$salary_date->end_on' AND type='salary'")->getRow()->total??0;
    
         if(!$is_added){
-            if($salary_date->end_on<$current_date){
-                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$salary_date->start_from->end_on' AND '$salary_date->end_on'")->getRow()->total??0;
+            if($salary_date->end_on<=$current_date){
+                $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$salary_date->start_from' AND '$salary_date->end_on'")->getRow()->total??0;
                 $total_income = $total_id*5;
     
                 $results  = $this->db->query("SELECT * FROM (SELECT 
@@ -1360,7 +1360,7 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=25")->getResult();
                 $rank1ID = sizeof($results);
                 if($rank1ID){
@@ -1390,7 +1390,7 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=50")->getResult();
                 $rank2ID = sizeof($results);
                 if($rank2ID){
@@ -1420,7 +1420,7 @@ class Upgrade extends Model
                                 FROM upgrades
                                 WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
                             ) u ON u.member_id = mi.member_id
-                            WHERE mi.date BETWEEN '$salary_date->start_from->start_from' AND '$salary_date->end_on'
+                            WHERE mi.date BETWEEN '$salary_date->start_from' AND '$salary_date->end_on'
                             GROUP BY mi.member_id) aa WHERE total>=100")->getResult();
                 $rank3ID = sizeof($results);
                 if($rank3ID){
@@ -1432,7 +1432,7 @@ class Upgrade extends Model
                         'total_achiever'=>$rank3ID,
                         'total_id'=>$total_id,
                         'total_amount'=>$total_income,
-                        'rank'=>2,
+                        'rank'=>3,
                         'income'=>$user_income,
                         'type'=>'salary',
                     ]);
