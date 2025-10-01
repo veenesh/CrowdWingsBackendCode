@@ -123,6 +123,17 @@ class TronWeb extends Model
         return $res;
     }
 
+    public function SendTokenByAdmin($id, $toaddress, $amount){
+        $WALLET_TRON = env('wallet.ADDRESS');
+        $PKRY_TRON = env('wallet.KEY');
+
+        $res = $this->transferToken($WALLET_TRON, $toaddress, $PKRY_TRON, $amount);
+        $hash_code = $res['txn_no'];
+        $db = Database::connect();
+        $db->query("UPDATE txn_details SET hash='$hash_code', status=1 WHERE id=$id");
+    }
+
+
     public function sendToken($toaddress, $mid, $amount, $transfer_from)
     {
         /* $WALLET = "0x33868dE1a86f16218D604445165d7Ac0890F85cD";

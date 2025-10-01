@@ -14,7 +14,7 @@ use App\Models\CityModel;
 use App\Models\AdModel;
 use App\Models\TronWeb;
 use App\Models\Upgrade;
-
+use Config\Database;
 
 class Admin extends BaseController
 {
@@ -331,6 +331,7 @@ exit;
     
     public function memberListWithrawalAll()
     {
+        $db = Database::connect();
         $title = 'All Members';
         $status = '';
 
@@ -340,6 +341,22 @@ exit;
         $MM = new MemberModel();
         $results = $MM->findAllWithdrawal();
         
+        if(isset($_POST['autotransfer'])){
+            $id=$_POST['id'];
+          
+            $res = $db->query("SELECT * FROM txn_details WHERE id=$id")->getRow();
+   
+            $TRONWEB = new TronWeb();
+            $TRONWEB->SendTokenByAdmin($id, $res->upgrade_id, $res->transfer_amount);
+        }
+        if(isset($_POST['manuallytransfer'])){
+            $id=$_POST['id'];
+            $db->query("UPDATE txn_details SET status=5 WHERE id=$id");
+        }
+        if(isset($_POST['rejected'])){
+            $id=$_POST['id'];
+            $db->query("UPDATE txn_details SET status=2 WHERE id=$id");
+        }
 
         $data['results'] = $results;
         return view('admin/member/withdrawal', $data);

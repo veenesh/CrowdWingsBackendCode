@@ -64,7 +64,8 @@
                                         <td><?php 
                                             if($result->status==0){
                                                 ?>
-                                                <form action="" method="post">
+                                                <form method="post">
+                                                    <input type="hidden" name="id" value="<?=$result->id?>">
                                                     <input type="submit" name="autotransfer" value="Auto Transfer" class="btn btn-secondary btn-sm">
                                                     <input type="submit" name="manuallytransfer" value="Manual Transfer" class="btn btn-info btn-sm">
                                                     <input type="submit" name="rejected" value="Reject" class="btn btn-danger btn-sm">
