@@ -32,8 +32,11 @@
                                     
                                    
                                     <th>Amount</th>
+                                    <th>Transfer Amount</th>
+                                    <th>Wallet Address</th>
                                     
                                     <th>Date</th>
+                                    <th>Satus</th>
                                 </tr>
                                 <?php
 
@@ -55,13 +58,29 @@
                                         
                                        
                                         <td><?= $result->amount ?></td>
+                                        <td><?= $result->transfer_amount ?></td>
+                                        <td><?= $result->upgrade_id ?></td>
                                         <td><?= $result->date_created ?></td>
+                                        <td><?php 
+                                            if($result->status==0){
+                                                ?>
+                                                <form action="" method="post">
+                                                    <input type="submit" name="autotransfer" value="Auto Transfer" class="btn btn-secondary btn-sm">
+                                                    <input type="submit" name="manuallytransfer" value="Manual Transfer" class="btn btn-info btn-sm">
+                                                    <input type="submit" name="rejected" value="Reject" class="btn btn-danger btn-sm">
+                                                </form>
+                                                <?php
+                                            }
+                                            else if($result->status==1){echo "Auto Transfer";}
+                                            else if($result->status==2){echo "Rejected";}
+                                            else if($result->status==5){echo "Manually Transfer";}
+                                        ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
                         
-                        total = <?=$total+150?>
+                        total = <?=$total?>
                     </div>
                 </div>
             </div>

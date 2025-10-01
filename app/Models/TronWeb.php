@@ -125,32 +125,34 @@ class TronWeb extends Model
 
     public function sendToken($toaddress, $mid, $amount, $transfer_from)
     {
-        $WALLET = "0x33868dE1a86f16218D604445165d7Ac0890F85cD";
-        $PKRY = "15f8092adb7b7f2d535994998ccf31e986fe2977e9242d595d6afeaf8e776e07";
-        $per=.5;
+        /* $WALLET = "0x33868dE1a86f16218D604445165d7Ac0890F85cD";
+        $PKRY = "15f8092adb7b7f2d535994998ccf31e986fe2977e9242d595d6afeaf8e776e07"; */
+        $per=.05;
         if($transfer_from=='wallet_fund'){
             $per=.05;
         }
         $transfer_amount = $amount - $amount * $per;
 
 
-        $res = $this->transferToken($WALLET, $toaddress, $PKRY, $transfer_amount);
+        //$res = $this->transferToken($WALLET, $toaddress, $PKRY, $transfer_amount);
 
         $date = date('Y-m-d');
         $TxnDetail = new TxnDetails();
         $TxnDetail->insert([
             'member_id' => $mid,
             'amount' => $amount,
+            'transfer_amount' => $transfer_amount,
             'type' => 'Withdrawal',
             'transfer_from' => $transfer_from,
-            'hash' => $res['txn_no'],
+            'hash' => null,
             'upgrade_id' => $toaddress,
-            'date_created' => $date
+            'date_created' => $date,
+            'status'=>0,
         ]);
 
-        if($transfer_from=='wallet_fund'){
+        /* if($transfer_from=='wallet_fund'){
             $this->db->query("UPDATE members SET wallet=wallet-$amount WHERE member_id='$mid'");
-        }
+        } */
         return true;
     }
     public function transferUsdtToMainWallet()

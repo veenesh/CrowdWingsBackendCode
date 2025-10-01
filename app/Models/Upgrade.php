@@ -700,16 +700,19 @@ class Upgrade extends Model
             if ($transfer_to == 'address') {
                 $TRONWEB = new TronWeb();
                 $TRONWEB->sendToken($wallet_address, $mid, $amount, $transfer_from);
+                
             } else if ($transfer_to == 'member') {
                 $date = date('Y-m-d');
                 $TxnDetail = new TxnDetails();
                 $TxnDetail->insert([
                     'member_id' => $mid,
                     'amount' => $amount,
+                    'transfer_amount' => $amount,
                     'type' => 'fund transfer',
                     'hash' => $transfer_member_id,
                     'upgrade_id' => 'Transfer',
-                    'date_created' => $date
+                    'date_created' => $date,
+                    'status' => 1
                 ]);
                 $transfer_amount = $amount;
                 $this->db->query("UPDATE members SET wallet=wallet-$transfer_amount WHERE member_id='$mid'");
@@ -720,10 +723,12 @@ class Upgrade extends Model
                 $TxnDetail->insert([
                     'member_id' => $mid,
                     'amount' => $amount,
+                    'transfer_amount' => $amount,
                     'type' => 'Withdrawal',
                     'hash' => 'Wallet Transfer',
                     'upgrade_id' => 'Transfer',
-                    'date_created' => $date
+                    'date_created' => $date,
+                    'status' => 1
                 ]);
                 $transfer_amount = $amount - $amount * .05;
                 $this->db->query("UPDATE members SET wallet=wallet+$transfer_amount WHERE member_id='$mid'");
