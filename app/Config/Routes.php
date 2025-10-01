@@ -61,12 +61,18 @@ $routes->add('/admin/login', 'Auth\Admin::login');
 
 $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
     $routes->add('dashboard', 'AdminArea\Admin::dashboard');
-
+    $routes->add('member/notification', 'AdminArea\Admin::notification');
+    
+    $routes->add('member/chat', 'AdminArea\Admin::chat');
+    
     $routes->add('member/list', 'AdminArea\Admin::memberListAll');
+    
+    $routes->add('member/withdrawal', 'AdminArea\Admin::memberListWithrawalAll');
+    
     $routes->add('member/edit', 'AdminArea\Admin::memberEdit');
-    $routes->add('member/withdrawal', 'AdminArea\Admin::withdrawalList');
-    
-    
+    $routes->add('member/roi', 'AdminArea\Admin::roiPer');
+    $routes->add('member/change-password', 'AdminArea\Admin::changePasswordAdmin');
+
     $routes->add('vendor/list/all', 'AdminArea\Admin::vendorListAll');
 
     $routes->add('ad/list', 'AdminArea\Admin::listAd');
@@ -80,7 +86,7 @@ $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
 
     $routes->add('topup', 'AdminArea\Admin::topUp');
 
-    $routes->add('logout', 'AuthAdmin\Admin::logout');
+    $routes->add('logout', 'Auth/Admin::logout');
 });
 
 

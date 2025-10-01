@@ -1002,6 +1002,10 @@ class Upgrade extends Model
             'total_withdrawal' => $withdrawal,
             'wallet_balance' => $wallet_balance,
             'limit' => $limit,
+            'totalBusiness' => 0,
+            'directIncome' => 0,
+            'dailyIncome' => 0,
+            'rewardIncome' => 0,
             'user_wallet' => $memberD->user_wallet,
             'salaryIncomeLevels' => [
                 [

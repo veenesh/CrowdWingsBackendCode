@@ -26,6 +26,10 @@
     <title>Welcome to <?=COMPANY_NAME?></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -51,14 +55,32 @@
                 <div class="menu-title">Members</div>
             </a>
         </li>
-
         
-       <li>
-            <a href="<?=base_url().$member?>/member/withdrawal" class="">
-                <div class="parent-icon"><i class="fa fa-usd"></i></div>
-                <div class="menu-title">Withdrawal</div>
+         <li>
+            <a href="<?=base_url().$member?>/member/chat" class="">
+                <div class="parent-icon"><i class="fa fa-gear"></i></div>
+                <div class="menu-title">Message</div>
             </a>
         </li>
+<li>
+            <a href="<?=base_url().$member?>/member/withdrawal" class="">
+                <div class="parent-icon"><i class="fa fa-gear"></i></div>
+                <div class="menu-title">Wihdrawal</div>
+            </a>
+        </li>
+        
+        <li>
+            <a href="<?=base_url().$member?>/member/change-password" class="">
+                <div class="parent-icon"><i class="fa fa-gear"></i></div>
+                <div class="menu-title">Change Password</div>
+            </a>
+        </li>
+        
+        
+        
+
+        
+       
     
        
         <li>
@@ -118,6 +140,10 @@
 
 <script src="<?=base_url()?>/public/theme/js/app.js"></script>
 <script src="<?=base_url()?>/public/theme/css/js/script.js"></script>
-
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+  </script>
 </body>
 </html>

@@ -353,7 +353,9 @@ class MemberModel extends Model
         ];
     }
     
-    
+    public function findAllWithdrawal(){
+        return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' ORDER BY date_created ASC;;")->getResult();
+    }
     public function teamData($mid, $level){
         $querySet = "SET @sr := 0;";
         $this->db->query($querySet);

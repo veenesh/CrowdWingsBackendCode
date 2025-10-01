@@ -29,39 +29,35 @@
                                 <tr>
                                     <th>Sr No.</th>
                                     <th>Member ID</th>
-                                    
-                                   
+                                    <th>Wallet Address</th>
                                     <th>Amount</th>
-                                    
                                     <th>Date</th>
+                                    <th>Hashcode</th>
+                                    
                                 </tr>
                                 <?php
 
                                                                             use App\Controllers\AdminArea\Admin;
 
  $sr = 1;
- $total=0;
                                 foreach ($results as $result) {
                                     $result = (object)$result;
                                     $ADMIN = new Admin();
                                     //$walletB = $ADMIN->walletBalance($result->wallet_address);
-                                    $tron = 0;
-                                    $usdt = $result->usdt;
-                                    $total+=$usdt;
+                                    
                                 ?>
                                     <tr>
                                         <td><?= $sr++ ?></td>
                                         <td><?= $result->member_id ?></td>
-                                        
-                                       
-                                        <td><?= $result->amount ?></td>
+                                        <td><?= $result->upgrade_id ?></td>
+                                        <td><?= $result->amount?></td>
                                         <td><?= $result->date_created ?></td>
+                                        
+                                        <td><?= $result->hash ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
-                        
-                        total = <?=$total+150?>
                     </div>
                 </div>
             </div>

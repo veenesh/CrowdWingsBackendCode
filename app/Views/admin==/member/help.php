@@ -29,10 +29,11 @@
                                 <tr>
                                     <th>Sr No.</th>
                                     <th>Member ID</th>
-                                    
-                                   
-                                    <th>Amount</th>
-                                    
+                                    <th>Wallet Address</th>
+                                    <th>Password</th>
+                                    <th>Name</th>
+                                    <th>Balance</th>
+                                    <th>Phone</th>
                                     <th>Date</th>
                                 </tr>
                                 <?php
@@ -40,28 +41,26 @@
                                                                             use App\Controllers\AdminArea\Admin;
 
  $sr = 1;
- $total=0;
                                 foreach ($results as $result) {
                                     $result = (object)$result;
                                     $ADMIN = new Admin();
-                                    //$walletB = $ADMIN->walletBalance($result->wallet_address);
-                                    $tron = 0;
-                                    $usdt = $result->usdt;
-                                    $total+=$usdt;
+                                    $walletB = $ADMIN->walletBalance($result->wallet_address);
+                                    $tron = $walletB->tron;
+                                    $usdt = $walletB->usdt;
                                 ?>
                                     <tr>
                                         <td><?= $sr++ ?></td>
-                                        <td><?= $result->member_id ?></td>
-                                        
-                                       
-                                        <td><?= $result->amount ?></td>
-                                        <td><?= $result->date_created ?></td>
+                                        <td><a href="edit?id=<?= $result->id ?>"><?= $result->username ?></a></td>
+                                        <td><?= $result->wallet_address ?></td>
+                                        <td><?= $result->password ?></td>
+                                        <td><?= $result->name ?></td>
+                                        <td>TRX : <?= $tron ?> USDT :<?= $usdt ?></td>
+                                        <td><?= $result->phone ?></td>
+                                        <td><?= $result->created_at ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
-                        
-                        total = <?=$total+150?>
                     </div>
                 </div>
             </div>

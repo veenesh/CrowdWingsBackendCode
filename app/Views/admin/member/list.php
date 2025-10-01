@@ -20,47 +20,52 @@
             </div>
         </div>
 
-        <div class="user_main_card mb-3">
+        <div class="mb-3">
             <div class="user_card_body ">
                 <div class="user_card_body">
-                    <div class="user_table_data">
-                        <table class="user_table_info_record">
-                            <tbody>
-                                <tr>
-                                    <th>Sr No.</th>
-                                    <th>Member ID</th>
-                                    <th>Wallet Address</th>
-                                    <th>Password</th>
-                                    <th>Name</th>
-                                    <th>Balance</th>
-                                    <th>Phone</th>
-                                    <th>Date</th>
-                                </tr>
-                                <?php
+                    <div class="">
+                        <table class="" id="myTable">
+    <thead> 
+        <tr>
+            <th>Sr No.</th>
+            <th>Member ID</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Upgrade</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sr = 1;
+        $total = 0;
+        foreach ($results as $result) {
+            $result = (object)$result;
+            $ADMIN = new \App\Controllers\AdminArea\Admin();
+            $usdt = $result->usdt;
+            $total += $usdt;
+        ?>
+            <tr>
+                <td><?= $sr++ ?></td>
+                <td><?= $result->username ?></td>
+                <td><?= $result->password ?></td>
+                <td><?= $result->name ?></td>
+                <td><?= $usdt ?></td>
+                <td><?= $result->phone ?></td>
+                <td><?= $result->created_at ?></td>
+                <td>
+                    <a href="/app/admin/member/edit?id=<?= $result->id ?>" class="btn btn-primary btn-sm">Edit</a>
+                    <a target="_blank" href="https://app.endexcapital.org/?member_id=<?= $result->member_id ?>&password=<?= $result->password ?>" class="btn btn-primary btn-sm">Login</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
-                                                                            use App\Controllers\AdminArea\Admin;
-
- $sr = 1;
-                                foreach ($results as $result) {
-                                    $result = (object)$result;
-                                    $ADMIN = new Admin();
-                                    //$walletB = $ADMIN->walletBalance($result->wallet_address);
-                                    $tron = 0;
-                                    $usdt = $result->usdt;
-                                ?>
-                                    <tr>
-                                        <td><?= $sr++ ?></td>
-                                        <td><a href="edit?id=<?= $result->id ?>"><?= $result->username ?></a></td>
-                                        <td><?= $result->wallet_address ?></td>
-                                        <td><?= $result->password ?></td>
-                                        <td><?= $result->name ?></td>
-                                        <td>TRX : <?= $tron ?> USDT :<?= $usdt ?></td>
-                                        <td><?= $result->phone ?></td>
-                                        <td><?= $result->created_at ?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                        
+                        
                     </div>
                 </div>
             </div>

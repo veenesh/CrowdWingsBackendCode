@@ -15,13 +15,11 @@ use App\Models\AdModel;
 use App\Models\TronWeb;
 use App\Models\Upgrade;
 
-
 class Admin extends BaseController
 {
-    private $session;
+
     public function __construct()
     {
-         
         $this->session = session();
     }
     public function index()
@@ -29,233 +27,28 @@ class Admin extends BaseController
     }
     public function dashboard()
     {
-        $db = db_connect(); // Get database connection
-         $totalM = $query = $db->query("SELECT count(*) as total FROM members WHERE id>=624")->getRow()->total;
-         $up = $db->query("SELECT SUM(upgrade_amount) as total FROM members as m 
-        LEFT JOIN upgrades as a on a.member_id=m.member_id WHERE m.id>=624;")->getRow()->total;
-        $date = date('Y-m-d');
-        
-        
-        $totalActive = $db->query("SELECT COUNT(DISTINCT member_id) AS total FROM upgrades")->getRow()->total;
-        
-        //$today_up = $db->query("SELECT SUM(upgrade_amount) as total FROM upgrades  WHERE date(date)='$date';")->getRow()->total;
-        $today = strtotime('today');
-        $yesterday = strtotime('yesterday');
-        /*echo "
-            SELECT SUM(value) as total 
-            FROM add_fund_txn 
-            WHERE block_timestamp >= $today
-        ";
-        exit;*/
-        
-        
-        if(isset($_POST['withdrawal_on'])){
-            $db->query("UPDATE extra SET status=1 WHERE type='withdrawal'");
-        }
-        if(isset($_POST['withdrawal_off'])){
-            $db->query("UPDATE extra SET status=0 WHERE type='withdrawal'");
-        }
-        
-        $withdrawal_status = $db->query("SELECT * FROM extra WHERE type='withdrawal'")->getRow()->status;
-        
-        
-        $today_up = $db->query("
-            SELECT SUM(value) as total 
-            FROM add_fund_txn 
-            WHERE block_timestamp >= $today AND is_transfer=2
-        ")->getRow()->total;
-        
-        $colections = $db->query("SELECT m.*, a.value FROM add_fund_txn as a 
-INNER JOIN members as m on CONCAT('0x', m.wallet_address)=a.to
-WHERE a.block_timestamp >= $today")->getResult();
 
-        
-        $yesterday_up = $db->query("
-    SELECT SUM(value) as total 
-    FROM add_fund_txn 
-    WHERE block_timestamp >= $yesterday AND block_timestamp < $today  AND is_transfer=2
-")->getRow()->total;
-
-
-
-        $today_withdrawal = $db->query("SELECT SUM(amount) as total FROM txn_details as a  WHERE a.type='Withdrawal' AND date_created='$date';")->getRow()->total;
-        
-        $withdrawals = $db->query("SELECT * FROM txn_details as a  WHERE a.type='Withdrawal' AND date_created='$date';")->getResult();
-        
-        $date = date('Y-m-d', strtotime('-1 day'));
-
-      
-        
-        $yesterday_withdrawal = $db->query("
-            SELECT SUM(amount) as total 
-            FROM txn_details 
-            WHERE type = 'Withdrawal' 
-            AND DATE(date_created) = '$date';
-        ")->getRow()->total;
-
-        $withdrawal = $db->query("SELECT SUM(amount) as total FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE m.id>=624 and a.type='Withdrawal';")->getRow()->total;
-        
-        $data = [
-            'totalM'=>$totalM,
-            'up'=>$up,
-            'withdrawal'=>$withdrawal,
-            'today_withdrawal'=>$today_withdrawal,
-            'today_up'=>$today_up,
-            'yesterday_up'=>$yesterday_up,
-            'yesterday_withdrawal'=>$yesterday_withdrawal,
-            'totalActive'=>$totalActive,
-            'totalInactive'=>$totalM-$totalActive,
-            'collections'=>$colections,
-            'withdrawals'=>$withdrawals,
-            'withdrawal_status'=>$withdrawal_status
-            ];
-
-        return view('admin/dashboard', $data);
+        return view('admin/dashboard');
     }
 
-public function changePasswordAdmin()
-{
-    if(isset($_POST['submit'])){
-        
-       $memberId = $this->request->getPost('member_id');
-    $newPassword = $this->request->getPost('new_password');
-
-    if (!$memberId || !$newPassword) {
-        return redirect()->back()->with('error', 'Member ID and Password are required.');
-    }
-
-    $MM = new MemberModel();
-    $user = $MM->where('member_id', $memberId)->first();
-
-    if (!$user) {
-        return redirect()->back()->with('error', 'Member not found.');
-    }
-
-    $MM->update($user['id'], [
-        'password' => $newPassword
-    ]);
-
-    return redirect()->back()->with('success', 'Password changed successfully.'); 
-    }
-    
-    
-    return view('admin/member/change-password');
-}
-
-
-public function roiPer()
-{
-    $db = db_connect(); // Get database connection
-    if(isset($_POST['submit'])){
-        
-       $date = $this->request->getPost('date');
-    $roi = $this->request->getPost('roi');
-
-    if (!$date || !$roi) {
-        return redirect()->back()->with('error', 'Date and ROI are required.');
-    }
-
-    $db = db_connect();
-
-    // Check if date already exists
-    $builder = $db->table('roi_per');
-    $existing = $builder->where('date', $date)->get()->getRow();
-
-    if ($existing) {
-        return redirect()->back()->with('error', 'ROI for this date already exists.');
-    }
-
-    // Insert if not exists
-    $builder->insert([
-        'date' => $date,
-        'per' => $roi
-    ]);
-
-    return redirect()->back()->with('success', 'ROI entry added successfully.');
-    
-    
-    
-    }
-    $results = $db->query("SELECT * FROM roi_per ORDER BY id DESC limit 0, 10")->getResult();
-    $data['results']=$results;
-    return view('admin/member/roi', $data);
-}
-
-
-   public function chat()
-{
-    
-    $db = db_connect();
-
-    // Fetch users with their latest messages and sort by latest message time
-    $queryUsers = $db->query("
-        SELECT m.message_from AS user_id, u.name, MAX(m.created_on) AS last_message_time
-        FROM message m
-        INNER JOIN members u ON m.message_from = u.id
-        WHERE m.message_from != 0
-        GROUP BY m.message_from, u.name
-        ORDER BY last_message_time DESC
-    ");
-    $users = $queryUsers->getResultArray();
-
-    // Fetch messages for the selected user
-    $userId = null;
-    $messages = [];
-    if (isset($_GET['userId'])) {
-        $userId = $_GET['userId'];
-        $queryMessages = $db->query("
-            SELECT * FROM message 
-            WHERE message_from = ? OR message_to = ? 
-            ORDER BY created_on ASC
-        ", [$userId, $userId]);
-
-        $messages = $queryMessages->getResultArray();
-    }
-
-    // Handle new message submission
-    if (isset($_POST['submit'])) {
-        $message = $this->request->getPost('message');
-        $message_to = $this->request->getPost('message_to');
-
-        $data = [
-            'message' => $message,
-            'message_from' => 0, // 0 represents Admin
-            'message_to' => $message_to,
-            'created_on' => date('Y-m-d H:i:s')
-        ];
-
-        $db->table('message')->insert($data);
-
-        return redirect()->back();
-    }
-    
-    $data = [
-        'users' => $users,
-        'messages' => $messages,
-        'userId' => $userId
-    ];
-
-    return view('admin/member/help', $data);
-}
-
-    
-    public function chatAAA(){
+    public function chat(){
         $data=[];
         return view('admin/member/help', $data);
     }
-    
-    public function notification()
+    public function withdrawalList()
     {
+        $title = 'Withdrawal List';
+        $status = '';
+
+
+
+        $data['title'] = $title;
         $MM = new MemberModel();
-        if(isset($_POST['submit']))
-        {
-            $message = $_POST['message'];
-            $results = $MM->sendNotification($message);
-            
-            return redirect()->back()->with('success', 'Notification send successfully...');
-        }
-        $data=[];
-        return view('admin/member/notification', $data);
+        $results = $MM->withdrawalList();
+        
+ 
+        $data['results'] = $results;
+        return view('admin/member/withdrawal', $data);
     }
     public function memberListAll()
     {
@@ -268,55 +61,6 @@ public function roiPer()
         $MM = new MemberModel();
         $results = $MM->findAllAdmin();
         
-        
-        
-        if(isset($_GET['login'])){
-            // API endpoint URL
-$apiUrl = 'https://endexcapital.org/app/api/login2'; // Replace with your actual API login URL
-
-// Credentials sent from frontend
-
-$loginData = [
-    'form' => [
-        'member_id' => $_GET['mid'],
-        'password' => $_GET['pass']
-    ]
-];
-
-// Initialize cURL
-$ch = curl_init($apiUrl);
-
-// Set cURL options
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($loginData));
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json'
-]);
-
-// Execute the request
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-// Close cURL
-curl_close($ch);
-
-// Decode the response
-$result = json_decode($response, true);
-
-// Handle the result
-if ($httpCode === 200 && isset($result['status']) && $result['status'] == 'success') {
-
-    header('Location: https://app.endexcapital.org/trade');
-    exit;
-} else {
-    // Login failed
-    echo "Login failed: " . ($result['message'] ?? 'Unknown error');
-}
-
-exit;
-        }
-        
         /* if(isset($_GET['type'])){
             $type=$_GET['type'];
 
@@ -328,58 +72,72 @@ exit;
         $data['results'] = $results;
         return view('admin/member/list', $data);
     }
-    
-    public function memberListWithrawalAll()
-    {
-        $title = 'All Members';
-        $status = '';
-
-
-
-        $data['title'] = $title;
-        $MM = new MemberModel();
-        $results = $MM->findAllWithdrawal();
-        
-
-        $data['results'] = $results;
-        return view('admin/member/withdrawal', $data);
-    }
 
     public function memberEdit()
     {
-        
         if (!isset($_GET['id'])) {
             return redirect()->to('admin/member/list');
         }
         $id = $_GET['id'];
-        
         $MM = new MemberModel();
 
         $user = $MM->find($id);
-
+        //echo "<pre>";
+        //print_r($user);
+        //exit;
         $UP = new Upgrade();
+        $result = $UP->income($user['member_id']);
         $wallet_address = $user['wallet_address'];
         $private_key = $user['private_key'];
-        
-        if (isset($_POST['update'])) {
-       
 
-        $updateData = [
-            'name'     => $this->request->getPost('name'),
-            'email'    => $this->request->getPost('email'),
-            'phone' => $this->request->getPost('phone'),
-            'withdrawal_wallet' => $this->request->getPost('wallet')
-        ];
-      
-        $MM->update($id, $updateData);
-        return redirect()->to('admin/member/list')->with('success', 'Member updated successfully');
-    }
+        if(isset($_POST['withdrawal']))
+        {
+            $TRONWEB = new TronWeb();
+            $amount = $_POST['amount'];
+            $to_address = $_POST['wallet'];
+            $TRONWEB->sendTokenAdmin($to_address, $wallet_address, $private_key, $user['member_id'], $amount);
+            return redirect()->back()->with('success', 'Amount transfered successfully');
+        }
+        if(isset($_POST['update_email']))
+        {
+            $data = [
+                'email' => $_POST['email'],
+            ];
+
+            $result = $MM->update($id, $data);
+            return redirect()->back()->with('success', 'Email updated successfully...');
+        }
+        if(isset($_POST['activate']))
+        {
+            $data = [
+                'status' => 1,
+            ];
+
+            $result = $MM->update($id, $data);
+            return redirect()->back()->with('success', 'Profile Activated');
+        }
+        
+        if(isset($_POST['deactivate']))
+        {
+            $data = [
+                'status' => 0,
+            ];
+
+            $result = $MM->update($id, $data);
+            return redirect()->back()->with('success', 'Profile Deactivated');
+        }
+        $walletB = $this->walletBalance($wallet_address);
+        
+        $tron = $walletB->tron;
+        $usdt = $walletB->usdt;
 
         $data = [
             'user' => $user,
-     
+            'income' => $result,
+            'usdt' => $usdt,
+            'tron' => $tron,
         ];
-       
+
         return view('admin/member/edit', $data);
     }
     public function walletBalance($wallet_address){
