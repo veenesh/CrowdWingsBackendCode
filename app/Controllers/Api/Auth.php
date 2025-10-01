@@ -276,6 +276,7 @@ class Auth extends ResourceController
         ];
         
         $result = $MM->insert($dataIns);
+        $MM->updateTree($upline_id, $position, $username);
         }
         
 
