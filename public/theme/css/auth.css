@@ -1,0 +1,70 @@
+body {
+    background: url(../authbg.jpg);
+    background-size: cover;
+}
+h5.text1 {
+    text-align: initial;
+}
+.welcome_inner_content {
+    text-align: center;
+}
+
+.registerLogin {
+    border: 1px solid #0b0c26;
+    padding: 20px;
+    background: rgb(11 12 38 / 40%);
+    max-width: 700px;
+    margin: auto;
+    margin-top: 5em;
+    color: #fff;
+}
+
+
+.persona_detail_data h6 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom:10px;
+     color:#fff;
+     margin-top: 10px;
+
+}
+.welcome_inner_content h4 {
+    font-size:26px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color:#fff;
+}
+
+.welcome_inner_content img {
+    height: 174px;
+}
+
+.welcome_inner_content p {
+    margin: 20px 0px;
+     color:#fff;
+}
+
+.inner_detail_data {
+    width: 100%;
+   
+}
+
+.persona_detail_data {
+    max-width: 500px;
+    margin: auto;
+    width:100%;
+}
+.date_welcome_letter_inner p span {
+    float: right;
+     color:#fff;
+}
+
+.date_welcome_letter_inner p {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+     color:#fff;
+}
