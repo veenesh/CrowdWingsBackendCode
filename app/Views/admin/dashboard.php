@@ -156,7 +156,7 @@
                 <div class="inner_side_content">
                     <div class="data_detail_inner">
                         <p>Withdrawal</p>
-                        <h4><?=$withdrawal+150?></h4>
+                        <h4><?=$withdrawal?></h4>
                     </div>
                     <div class="data_detail_inner_icon">
                         <i class="fa fa-inr" aria-hidden="true"></i>
@@ -168,7 +168,7 @@
 
 </div>
 
-<div class="row">
+<!--<div class="row">
     <div class="col-sm-12">
         <form method="post">
         <?php 
@@ -185,7 +185,7 @@
         </form>
         <br /><br /><br />
     </div>
-</div>
+</div>-->
 
 <!--<div class="row">
     

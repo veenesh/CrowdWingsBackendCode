@@ -57,7 +57,6 @@
                 <td><?= $result->created_at ?></td>
                 <td>
                     <a href="/app/admin/member/edit?id=<?= $result->id ?>" class="btn btn-primary btn-sm">Edit</a>
-                    <a target="_blank" href="https://app.endexcapital.org/?member_id=<?= $result->member_id ?>&password=<?= $result->password ?>" class="btn btn-primary btn-sm">Login</a>
                 </td>
             </tr>
         <?php } ?>
