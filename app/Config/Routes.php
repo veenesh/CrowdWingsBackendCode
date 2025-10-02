@@ -86,7 +86,7 @@ $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
 
     $routes->add('topup', 'AdminArea\Admin::topUp');
 
-    $routes->add('logout', 'Auth/Admin::logout');
+    $routes->add('logout', 'Auth\Admin::logout');
 });
 
 
