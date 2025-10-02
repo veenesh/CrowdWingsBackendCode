@@ -349,7 +349,7 @@ class MemberModel extends Model
             'teamRigtActive'=>$teamRigtActive,
             'todayBusiness'=>$todayBusiness,
             'teamLeftInActive'=>$teamLeftInActive,
-            'teamRightInActive'=>$teamRigtInActive
+            'teamRigtInActive'=>$teamRigtInActive
         ];
     }
     
