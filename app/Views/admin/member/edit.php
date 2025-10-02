@@ -35,7 +35,7 @@
             
             <div class="mb-3">
                 <label for="phone_no" class="form-label">Wallet Address</label>
-                <input type="text" name="wallet" class="form-control" value="<?= esc($user['withdrawal_wallet']) ?>" required>
+                <input type="text" name="user_wallet" class="form-control" value="<?= esc($user['user_wallet']) ?>" required>
             </div>
             <input type="submit" class="btn btn-primary" name='update' value="Update">
             <a href="<?= base_url('admin/member/list') ?>" class="btn btn-secondary">Cancel</a>

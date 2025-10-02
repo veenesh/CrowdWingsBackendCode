@@ -331,15 +331,20 @@ exit;
     
     public function memberListWithrawalAll()
     {
+        $list = "";
         $db = Database::connect();
         $title = 'All Members';
         $status = '';
-
-
-
         $data['title'] = $title;
+        if(isset($_GET['list'])){
+            $list = 'history';
+            $title = 'Withdrawal History';
+            $status = '';
+            $data['title'] = $title;
+        }
+        
         $MM = new MemberModel();
-        $results = $MM->findAllWithdrawal();
+        $results = $MM->findAllWithdrawal($list);
         
         if(isset($_POST['autotransfer'])){
             $id=$_POST['id'];
@@ -348,14 +353,17 @@ exit;
    
             $TRONWEB = new TronWeb();
             $TRONWEB->SendTokenByAdmin($id, $res->upgrade_id, $res->transfer_amount);
+            return redirect()->back();
         }
         if(isset($_POST['manuallytransfer'])){
             $id=$_POST['id'];
             $db->query("UPDATE txn_details SET status=5 WHERE id=$id");
+            return redirect()->back();
         }
         if(isset($_POST['rejected'])){
             $id=$_POST['id'];
             $db->query("UPDATE txn_details SET status=2 WHERE id=$id");
+            return redirect()->back();
         }
 
         $data['results'] = $results;
@@ -385,7 +393,7 @@ exit;
             'name'     => $this->request->getPost('name'),
             'email'    => $this->request->getPost('email'),
             'phone' => $this->request->getPost('phone'),
-            'withdrawal_wallet' => $this->request->getPost('wallet')
+            'user_wallet' => $this->request->getPost('user_wallet')
         ];
       
         $MM->update($id, $updateData);

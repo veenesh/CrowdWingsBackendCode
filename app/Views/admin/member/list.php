@@ -56,7 +56,7 @@
                 <td><?= $result->phone ?></td>
                 <td><?= $result->created_at ?></td>
                 <td>
-                    <a href="/app/admin/member/edit?id=<?= $result->id ?>" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="<?=base_url()?>admin/member/edit?id=<?= $result->id ?>" class="btn btn-primary btn-sm">Edit</a>
                 </td>
             </tr>
         <?php } ?>
