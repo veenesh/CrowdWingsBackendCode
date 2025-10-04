@@ -337,10 +337,19 @@ exit;
         $status = '';
         $data['title'] = $title;
         if(isset($_GET['list'])){
-            $list = 'history';
+            if($_GET['list']=='history'){
+                $list = 'history';
             $title = 'Withdrawal History';
             $status = '';
             $data['title'] = $title;
+            }
+            if($_GET['list']=='transfer'){
+                $list = 'transfer';
+            $title = 'Transfer';
+            $status = '';
+            $data['title'] = $title;
+            }
+            
         }
         
         $MM = new MemberModel();
