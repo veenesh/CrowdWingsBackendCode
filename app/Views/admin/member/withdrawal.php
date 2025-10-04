@@ -36,7 +36,9 @@
                                     <th>Wallet Address/Member ID</th>
                                     
                                     <th>Date</th>
+                                    <?php if($result->upgrade_id!='Transfer'){?>
                                     <th>Satus</th>
+                                    <?php }?>
                                 </tr>
                                 <?php
 
@@ -61,6 +63,7 @@
                                         <td><?= $result->transfer_amount ?></td>
                                         <td><?= $result->upgrade_id=='Transfer'?$result->hash:$result->upgrade_id ?></td>
                                         <td><?= $result->date_created ?></td>
+                                        <?php if($result->upgrade_id!='Transfer'){?>
                                         <td><?php 
                                             if($result->status==0){
                                                 ?>
@@ -76,6 +79,7 @@
                                             else if($result->status==2){echo "Rejected";}
                                             else if($result->status==5){echo "Manually Transfer";}
                                         ?></td>
+                                        <?php }?>
                                     </tr>
                                 <?php } ?>
                             </tbody>
