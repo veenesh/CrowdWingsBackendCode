@@ -74,6 +74,7 @@ class Upgrade extends Model
         $startFrom = "2025-09-30";
         $endOn     = date('Y-m-d');
         $DB = Database::connect();
+        $DB->query("TRUNCATE TABLE `matching_income`");
         $is_record = $DB->query("SELECT * FROM matching_income ORDER BY id DESC")->getRow();
         if (isset($is_record->date)) {
             $startFrom = $is_record->date;
