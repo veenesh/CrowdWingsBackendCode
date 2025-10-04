@@ -376,7 +376,12 @@ exit;
         }
 
         $data['results'] = $results;
-        return view('admin/member/withdrawal', $data);
+        if(isset($_GET['list']) && $_GET['list']=='transfer'){
+            return view('admin/member/transfer', $data);
+        }else{
+            return view('admin/member/withdrawal', $data);
+        }
+        
     }
 
     public function memberEdit()

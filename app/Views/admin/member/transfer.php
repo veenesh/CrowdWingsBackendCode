@@ -36,7 +36,6 @@
                                     <th>Wallet Address/Member ID</th>
                                     
                                     <th>Date</th>
-                                    <th>Satus</th>
                                 </tr>
                                 <?php
 
@@ -61,21 +60,7 @@
                                         <td><?= $result->transfer_amount ?></td>
                                         <td><?= $result->upgrade_id=='Transfer'?$result->hash:$result->upgrade_id ?></td>
                                         <td><?= $result->date_created ?></td>
-                                        <td><?php
-                                            if($result->status==0){
-                                                ?>
-                                                <form method="post">
-                                                    <input type="hidden" name="id" value="<?=$result->id?>">
-                                                    <input type="submit" name="autotransfer" value="Auto Transfer" class="btn btn-secondary btn-sm">
-                                                    <input type="submit" name="manuallytransfer" value="Manual Transfer" class="btn btn-info btn-sm">
-                                                    <input type="submit" name="rejected" value="Reject" class="btn btn-danger btn-sm">
-                                                </form>
-                                                <?php
-                                            }
-                                            else if($result->status==1){echo "Auto Transfer";}
-                                            else if($result->status==2){echo "Rejected";}
-                                            else if($result->status==5){echo "Manually Transfer";}
-                                        ?></td>
+       
                                     </tr>
                                 <?php } ?>
                             </tbody>
