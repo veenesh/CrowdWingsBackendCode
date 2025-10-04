@@ -79,6 +79,13 @@
                 </li>
 
                 <li>
+                    <a href="<?= base_url() . $member ?>/member/withdrawal?list=transfer" class="">
+                        <div class="parent-icon"><i class="fa fa-gear"></i></div>
+                        <div class="menu-title">Transfer History</div>
+                    </a>
+                </li>
+
+                <li>
                     <a href="<?= base_url() . $member ?>/member/change-password" class="">
                         <div class="parent-icon"><i class="fa fa-gear"></i></div>
                         <div class="menu-title">Change Password</div>
