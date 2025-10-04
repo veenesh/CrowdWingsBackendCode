@@ -33,7 +33,7 @@
                                    
                                     <th>Amount</th>
                                     <th>Transfer Amount</th>
-                                    <th>Wallet Address</th>
+                                    <th>Wallet Address/Member ID</th>
                                     
                                     <th>Date</th>
                                     <th>Satus</th>
@@ -59,7 +59,7 @@
                                        
                                         <td><?= $result->amount ?></td>
                                         <td><?= $result->transfer_amount ?></td>
-                                        <td><?= $result->upgrade_id ?></td>
+                                        <td><?= $result->upgrade_id=='Transfer'?$result->hash:$result->upgrade_id ?></td>
                                         <td><?= $result->date_created ?></td>
                                         <td><?php 
                                             if($result->status==0){
