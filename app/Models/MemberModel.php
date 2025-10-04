@@ -361,6 +361,9 @@ class MemberModel extends Model
         }else if($list=='history'){
             return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' AND a.upgrade_id!='Transfer' AND a.status!=0 ORDER BY date_created ASC")->getResult();
         }
+        else if($list=='transfer'){
+            return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' AND a.upgrade_id='Transfer' AND a.status!=0 ORDER BY date_created ASC")->getResult();
+        }
         
     }
     public function teamData($mid, $level){
