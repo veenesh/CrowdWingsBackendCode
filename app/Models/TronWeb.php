@@ -31,7 +31,7 @@ class TronWeb extends Model
         $curl = curl_init();
         
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokentx&contractaddress=$contractAddress&address=$address&page=1&offset=5&startblock=0&endblock=999999999&sort=asc&apikey=YRG9WQ75KEUYAJRR83QCQF2XZKGAFJNRRP",
+            CURLOPT_URL => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokentx&contractaddress=$contractAddress&address=$address&page=1&offset=50&startblock=0&endblock=999999999&sort=asc&apikey=YRG9WQ75KEUYAJRR83QCQF2XZKGAFJNRRP",
             
 
             CURLOPT_RETURNTRANSFER => true,
