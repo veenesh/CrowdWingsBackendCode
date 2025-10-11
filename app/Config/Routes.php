@@ -60,6 +60,11 @@ $routes->add('/admin/login', 'Auth\Admin::login');
 
 
 $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
+
+    $routes->get('sliders', 'AdminArea\SliderController::index');
+    $routes->get('sliders/upload', 'AdminArea\SliderController::uploadForm', ['as' => 'admin.sliders.upload']);
+    $routes->post('sliders/upload', 'AdminArea\SliderController::uploadImages', ['as' => 'admin.sliders.upload.save']);
+    
     $routes->add('dashboard', 'AdminArea\Admin::dashboard');
     $routes->add('member/notification', 'AdminArea\Admin::notification');
     
@@ -87,11 +92,16 @@ $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
     $routes->add('topup', 'AdminArea\Admin::topUp');
 
     $routes->add('logout', 'Auth\Admin::logout');
+
+
+    
+
 });
 
 
 
 $routes->group("api", function ($routes) {
+    $routes->get('sliders', 'Api\SliderApiController::index', ['as' => 'api.sliders']);
     $routes->get("cron/roi", "Api\Income::roiCronJob");
     $routes->get("cron/matching-full", "Api\Income::matchingFullCronJob");
     $routes->get("cron/matching-day", "Api\Income::matchingDCronJob");

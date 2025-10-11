@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers\AdminArea;
-
 use App\Controllers\BaseController;
 
 use App\Models\SubscriptionModel;

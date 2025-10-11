@@ -92,6 +92,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="<?= base_url() . $member ?>/sliders" class="">
+                        <div class="parent-icon"><i class="fa fa-gear"></i></div>
+                        <div class="menu-title">Slider</div>
+                    </a>
+                </li>
+
 
 
 
