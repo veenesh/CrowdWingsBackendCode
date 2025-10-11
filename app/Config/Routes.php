@@ -64,6 +64,7 @@ $routes->group('admin', ['filter' => 'AdminFilter'], function($routes){
     $routes->get('sliders', 'AdminArea\SliderController::index');
     $routes->get('sliders/upload', 'AdminArea\SliderController::uploadForm', ['as' => 'admin.sliders.upload']);
     $routes->post('sliders/upload', 'AdminArea\SliderController::uploadImages', ['as' => 'admin.sliders.upload.save']);
+    $routes->post('sliders/delete/(:num)', 'AdminArea\SliderController::delete/$1', ['as' => 'admin.sliders.delete']);
     
     $routes->add('dashboard', 'AdminArea\Admin::dashboard');
     $routes->add('member/notification', 'AdminArea\Admin::notification');

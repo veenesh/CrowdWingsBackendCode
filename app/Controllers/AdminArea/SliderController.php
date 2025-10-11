@@ -40,4 +40,21 @@ class SliderController extends BaseController
 
         return redirect()->back()->with('error', 'No images selected or invalid files.');
     }
+
+    public function delete($id)
+{
+    $sliderModel = new \App\Models\SliderModel();
+    $slider = $sliderModel->find($id);
+
+    if ($slider) {
+        $filePath = FCPATH . 'uploads/sliders/' . $slider['image'];
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+        $sliderModel->delete($id);
+        return redirect()->back()->with('success', 'Slider deleted successfully.');
+    }
+
+    return redirect()->back()->with('error', 'Slider not found.');
+}
 }
