@@ -46,7 +46,7 @@ class MemberModel extends Model
 
     public function getData($member_id){
 
-        return $this->db->query("SELECT m.id, m.member_id, m.country_code, m.phone,  m.user_wallet, m.wallet_address, m.wallet, m.sponsor_id,  m.name, m.image, m.email, m.status, date(m.created_at) as register_date, m.created_at as timer_date u.id as up_id, date(u.date) as active_date, (SELECT max(upgrade_amount) FROM upgrades WHERE member_id=m.member_id) as max_pack, round((SELECT SUM(upgrade_amount) FROM upgrades WHERE member_id=m.member_id)) as total_pack FROM members as m 
+        return $this->db->query("SELECT m.id, m.member_id, m.country_code, m.phone,  m.user_wallet, m.wallet_address, m.wallet, m.sponsor_id,  m.name, m.image, m.email, m.status, date(m.created_at) as register_date, m.created_at as timer_date, u.id as up_id, date(u.date) as active_date, (SELECT max(upgrade_amount) FROM upgrades WHERE member_id=m.member_id) as max_pack, round((SELECT SUM(upgrade_amount) FROM upgrades WHERE member_id=m.member_id)) as total_pack FROM members as m 
                             LEFT JOIN upgrades as u ON u.member_id=m.member_id
                             WHERE m.member_id='$member_id'GROUP BY m.member_id")->getRow();
     }
