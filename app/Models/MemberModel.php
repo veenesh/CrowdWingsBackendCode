@@ -49,7 +49,7 @@ class MemberModel extends Model
         COUNT(*) AS total
       FROM members AS m
       INNER JOIN upgrades AS u ON u.member_id = m.member_id
-      WHERE m.sponsor_id = '892728'
+      WHERE m.sponsor_id = '$member_id'
         AND DATEDIFF(
               u.date,
               (SELECT date FROM upgrades WHERE member_id = m.sponsor_id LIMIT 1)
