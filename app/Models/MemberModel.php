@@ -44,6 +44,19 @@ class MemberModel extends Model
     protected $afterDelete    = [];
 
 
+    public function directCount($member_id){
+        return $this->db->query("SELECT 
+        COUNT(*) AS total
+      FROM members AS m
+      INNER JOIN upgrades AS u ON u.member_id = m.member_id
+      WHERE m.sponsor_id = '892728'
+        AND DATEDIFF(
+              u.date,
+              (SELECT date FROM upgrades WHERE member_id = m.sponsor_id LIMIT 1)
+            ) <= 60;
+      ")->getRow()->total??0;
+    }
+
     public function getData($member_id){
 
         return $this->db->query("SELECT m.id, m.member_id, m.country_code, m.phone,  m.user_wallet, m.wallet_address, m.wallet, m.sponsor_id,  m.name, m.image, m.email, m.status, date(m.created_at) as register_date, m.created_at as timer_date, u.id as up_id, date(u.date) as active_date, (SELECT max(upgrade_amount) FROM upgrades WHERE member_id=m.member_id) as max_pack, round((SELECT SUM(upgrade_amount) FROM upgrades WHERE member_id=m.member_id)) as total_pack FROM members as m 

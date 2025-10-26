@@ -6,6 +6,7 @@ use App\Models\MemberModel;
 use App\Models\Message;
 use App\Models\NewsModel;
 use CodeIgniter\RESTful\ResourceController;
+use Config\Database;
 
 class Member extends ResourceController
 {
@@ -13,12 +14,21 @@ class Member extends ResourceController
     public function index()
     {
         $MEMBER = new MemberModel();
+        $DB = Database::connect();
         $member_id = $_SESSION['member_id'];
         $id = $_SESSION['id'];
         $result = $MEMBER->getData($member_id);
+        $direct = $MEMBER->directCount($member_id);
+        
+        $showTimer=1;
+        if($direct>=2){
+            $showTimer=0;
+        }
+
         //$result = $MEMBER->select('id, member_id, country_code, phone,  wallet_address, wallet, sponsor_id,  name, image, email, status')->find($id);
         $data['status'] = 'success';
         $data['result'] = $result;
+        $data['showTimer'] = $showTimer;
         return $this->respond($data, 200);
     }
 

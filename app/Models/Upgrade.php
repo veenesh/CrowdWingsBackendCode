@@ -56,15 +56,24 @@ class Upgrade extends Model
         }
         // Fetch all active upgrades
         $upgrades = $this->db->query("SELECT * FROM upgrades")->getResult();
-
+        
+        
         foreach ($upgrades as $up) {
+
+            $income = $up->daily;
+
+            $MEMMODEL = new MemberModel();
+            $direct = $MEMMODEL->directCount($up->member_id);
+            if($direct>=2){
+                $income = .5;
+            }
             // Insert ROI
             $this->db->table('roi')->insert([
                 'member_id'  => $up->member_id,
                 'up_id'      => $up->id,
                 'up_date'    => $up->date,
                 'up_amount'  => $up->upgrade_amount,
-                'income'     => $up->daily,
+                'income'     => $income,
                 'date'       => $today,
             ]);
         }
