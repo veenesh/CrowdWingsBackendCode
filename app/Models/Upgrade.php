@@ -55,7 +55,7 @@ class Upgrade extends Model
             return;
         }
         // Fetch all active upgrades
-        $upgrades = $this->db->query("SELECT * FROM upgrades")->getResult();
+        $upgrades = $this->db->query("SELECT * FROM upgrades GROUP BY member_id")->getResult();
         
         
         foreach ($upgrades as $up) {
