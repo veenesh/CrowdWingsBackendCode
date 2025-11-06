@@ -119,6 +119,7 @@ class Upgrade extends Model
     public function dayMatching()
     {
         $date = date('Y-m-d');
+        //$date = 2025-10-28;
         $startTime = $date . ' 00:00:01';
         $endTime   = $date . ' 12:00:00';
 
@@ -131,7 +132,9 @@ class Upgrade extends Model
      */
     public function nightMatching()
     {
+        
         $date = date('Y-m-d');
+        //$date = "2025-10-28";
         $startTime = $date . ' 12:00:01';
         $endTime   = $date . ' 23:59:59';
 
@@ -153,7 +156,7 @@ class Upgrade extends Model
             GROUP BY t.member_id
         ";
         $results = $this->db->query($sql, [$startTime, $endTime])->getResult();
-
+       
         foreach ($results as $row) {
             $mid = $row->member_id;
 
@@ -196,7 +199,9 @@ class Upgrade extends Model
             // New carry values
             $new_left_carry  = $left_with_carry - ($pair);
             $new_right_carry = $right_with_carry - ($pair);
-
+            
+        
+            
             // --- Insert ---
             $this->db->table('matching_income')->insert([
                 'member_id'        => $mid,
@@ -1241,7 +1246,8 @@ class Upgrade extends Model
         $date_start = date('Y-m-01');
 
         $is_added = $this->db->query("SELECT COUNT(*) as total FROM salary_income WHERE date='$date'")->getRow()->total ?? 0;
-        if (date('Y-m-d') >= $date) {
+        //if (date('Y-m-d') >= $date) {
+        if (0) {
             if (!$is_added) {
                 $total_id = $this->db->query("SELECT COUNT(*) as total FROM `upgrades` WHERE date(date) BETWEEN '$date_start' AND '$date'")->getRow()->total ?? 0;
                 $total_income = $total_id * 5;
