@@ -66,7 +66,14 @@
                                                 ?>
                                                 <form method="post">
                                                     <input type="hidden" name="id" value="<?=$result->id?>">
-                                                    <input type="submit" name="autotransfer" value="Auto Transfer" class="btn btn-secondary btn-sm">
+                                                    <?php if($result->upgrade_id!=''){
+                                                        if($result->upgrade_id!='Transfer'){
+                                                            ?>
+                                                            <input type="submit" name="autotransfer" value="Auto Transfer" class="btn btn-secondary btn-sm">
+                                                            <?php
+                                                        }
+                                                    }?>
+                                                    
                                                     <input type="submit" name="manuallytransfer" value="Manual Transfer" class="btn btn-info btn-sm">
                                                     <input type="submit" name="rejected" value="Reject" class="btn btn-danger btn-sm">
                                                 </form>
