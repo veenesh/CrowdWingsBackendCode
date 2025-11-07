@@ -370,7 +370,7 @@ class MemberModel extends Model
     
     public function findAllWithdrawal($list){
         if($list==''){
-            return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' AND a.upgrade_id!='Transfer' AND a.status=0 ORDER BY date_created ASC")->getResult();
+            return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' AND a.upgrade_id IS NULL AND a.status=0 ORDER BY date_created ASC")->getResult();
         }else if($list=='history'){
             return $this->db->query("SELECT a.*, amount as usdt FROM members as m inner JOIN txn_details as a on a.member_id=m.member_id WHERE a.type='Withdrawal' AND a.upgrade_id!='Transfer' AND a.status!=0 ORDER BY date_created ASC")->getResult();
         }
