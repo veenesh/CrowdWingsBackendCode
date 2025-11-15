@@ -346,7 +346,7 @@ class Upgrade extends Model
             WHERE upgrade_balance >= {$upgrade_balance_limit} AND user_id NOT IN(SELECT user_id FROM {$next_table})")->getResult();
                 foreach ($results as $rr) {
                     $this->db->query("UPDATE {$table} SET upgrade_balance=0 WHERE id=$rr->id");
-                    $this->addToPool($next_table, $rr->member_id, $rr->up_id, $next_income);
+                    $this->addToPool($next_table, $rr->member_id, $rr->up_id, $next_income/2);
                 }
             }
         }
@@ -753,7 +753,7 @@ class Upgrade extends Model
                     'date_created' => $date,
                     'status' => 1
                 ]);
-                $transfer_amount = $amount - $amount * .05;
+                $transfer_amount = $amount;
                 $this->db->query("UPDATE members SET wallet=wallet+$transfer_amount WHERE member_id='$mid'");
             }
             $data = [
