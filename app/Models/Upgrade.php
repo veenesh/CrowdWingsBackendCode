@@ -1018,7 +1018,7 @@ class Upgrade extends Model
         }
         if ($total_pairR >= 100) {
             $sal3 = "Achieved";
-            $this->db->query("UPDATE members SET is_royal=1 WHERE WHERE member_id='$mid'");
+            //$this->db->query("UPDATE members SET is_royal=1 WHERE WHERE member_id='$mid'");
         }
 
         return  [
