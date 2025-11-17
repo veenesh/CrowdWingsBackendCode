@@ -892,7 +892,7 @@ class Upgrade extends Model
     }
     public function income($mid)
     {
-        $memberD = $this->db->query("SELECT wallet, user_wallet, salary_rank FROM members WHERE member_id='$mid'")->getRow();
+        $memberD = $this->db->query("SELECT wallet, user_wallet, salary_rank, is_royal FROM members WHERE member_id='$mid'")->getRow();
 
         $all_upgrades = $this->db->query("SELECT *, date(date) as up_date FROM upgrades WHERE member_id='$mid' AND withdrawal_limit<1000")->getResult();
 
@@ -1018,7 +1018,7 @@ class Upgrade extends Model
         }
         if ($total_pairR >= 100) {
             $sal3 = "Achieved";
-            //$this->db->query("UPDATE members SET is_royal=1 WHERE WHERE member_id='$mid'");
+            $this->db->query("UPDATE members SET is_royal=1 WHERE WHERE member_id='$mid'");
         }
 
         return  [
