@@ -1000,13 +1000,13 @@ class Upgrade extends Model
         $sal2 = 'Pair 50/' . $total_pair;
         $sal3 = 'Pair 100/' . $total_pair;
 
-        /* if($memberD->is_royal==1){
+        if($memberD->is_royal==1){
             $sal4 = "Achieved";
         }else{
-           
-        } */
+           $sal4 = 'Pair 100/' . $total_pairR;
+        }
         
-        $sal4 = 'Pair 100/' . $total_pairR;
+        
         if ($total_pair >= 25) {
             $sal1 = "Achieved";
         }
