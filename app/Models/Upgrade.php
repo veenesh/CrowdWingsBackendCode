@@ -1503,7 +1503,7 @@ class Upgrade extends Model
             FROM upgrades
             WHERE id IN (SELECT MAX(id) FROM upgrades GROUP BY member_id)
         ) u ON u.member_id = mi.member_id
-        WHERE mi.date BETWEEN '$royality_date->start_from' AND '$royality_date->end_on' AND
+        WHERE /* mi.date BETWEEN '$royality_date->start_from' AND '$royality_date->end_on' AND */
         mi.member_id='$mid'")->getRow()->total ?? 0;
 
         $total = $this->db->query("SELECT SUM(income) as total FROM salary_income WHERE member_id='$mid' AND type='salary'")->getRow()->total ?? 0;
