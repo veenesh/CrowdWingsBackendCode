@@ -999,7 +999,13 @@ class Upgrade extends Model
         $sal1 = 'Pair 25/' . $total_pair;
         $sal2 = 'Pair 50/' . $total_pair;
         $sal3 = 'Pair 100/' . $total_pair;
-        $sal4 = 'Pair 500/' . $total_pairR;
+
+        if($memberD->is_royal==1){
+            $sal4 = "Achieved";
+        }else{
+            $sal4 = 'Pair 100/' . $total_pairR;
+        }
+        
 
         if ($total_pair >= 25) {
             $sal1 = "Achieved";
@@ -1010,8 +1016,9 @@ class Upgrade extends Model
         if ($total_pair >= 100) {
             $sal3 = "Achieved";
         }
-        if ($total_pairR >= 500) {
+        if ($total_pairR >= 100) {
             $sal3 = "Achieved";
+            $this->db->query("UPDATE members SET is_royal=1 WHERE WHERE member_id='$mid'");
         }
 
         return  [
