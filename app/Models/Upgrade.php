@@ -974,7 +974,7 @@ class Upgrade extends Model
         } */
 
         //$withdrawalsresult = $this->db->query("SELECT SUM(amount) as total FROM txn_details WHERE member_id='$mid' AND type='withdrawal' AND transfer_from IS NULL")->getRow();
-        $withdrawalsresult = $this->db->query("SELECT SUM(amount) as total FROM txn_details WHERE member_id='$mid' AND type='withdrawal' AND (transfer_from is NULL or transfer_from='income')")->getRow();
+        $withdrawalsresult = $this->db->query("SELECT SUM(amount) as total FROM txn_details WHERE member_id='$mid' AND type='withdrawal' AND status!=2 AND (transfer_from is NULL or transfer_from='income')")->getRow();
         $withdrawal = 0;
 
         if (isset($withdrawalsresult->total) and $withdrawalsresult->total > 0) {
