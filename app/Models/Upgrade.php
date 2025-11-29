@@ -243,8 +243,16 @@ class Upgrade extends Model
             INNER JOIN team t ON m.member_id = t.sponsor_id
             WHERE t.level < 21 
         )
-        SELECT tt.* 
-        FROM team as tt INNER JOIN upgrades as u  ON u.member_id=tt.member_id WHERE tt.level>0;")->getResult();
+        SELECT 
+    tt.*
+FROM team tt
+LEFT JOIN upgrades u 
+    ON u.id = (
+        SELECT MIN(id) 
+        FROM upgrades 
+        WHERE member_id = tt.member_id
+    )
+WHERE tt.level > 0;")->getResult();
 
         $LEVELINCOME = new LevelIncome();
         $date = date('Y-m-d');
